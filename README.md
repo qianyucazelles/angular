@@ -11,7 +11,7 @@ This is store my angular learning examples, including:
   <li>Once it's installed, you can use <code>npm -version </code> to check your version</li>
   <li>To get the latest version <code> sudo npm update -g</code> </li>
   <b> 2. Set up Typescript</b>
-  <code>npm install -g typescript" </code>
+  <li><code>npm install -g typescript" </code></li>
   <b> 3. Install/Update Angular CLI</b>
   <li><code>npm install -g @angular/cli </code></li>
   <li> <code>ng version</code></li>
