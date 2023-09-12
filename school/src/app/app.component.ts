@@ -1,6 +1,6 @@
 import { participantList } from './participantList';
 import { Component } from '@angular/core';
-import { sessionList } from './sessionList';
+import { majorList } from './majorList';
 
 @Component({
   selector: 'app-root',
@@ -10,5 +10,5 @@ import { sessionList } from './sessionList';
 export class AppComponent {
   title = 'school';
   participantList = participantList;
-  sessionList = sessionList;
+  majorList = majorList;
 }

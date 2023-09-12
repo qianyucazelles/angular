@@ -1,5 +1,5 @@
 export class Formation{
-    id : number;
+    id: number;
     nom: string;
 
     constructor(id:number, nom:string){
