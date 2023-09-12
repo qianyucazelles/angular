@@ -1,4 +1,4 @@
-This is store my angular learning examples, including:
+This is to store my angular learning examples, including:
 <ul>
   <li>Data bidding</li>
   <li>Event bidding</li>
