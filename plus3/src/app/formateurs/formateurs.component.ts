@@ -9,6 +9,7 @@ import { Formateur } from './formateur';
 })
 export class FormateursComponent implements OnInit {
   formateurs: Formateur[] =[];
+  searchText: string ="";
 
   constructor(private formateurService: FormateurService){}
 
@@ -17,5 +18,8 @@ export class FormateursComponent implements OnInit {
         this.formateurs = data;
       });
   }
+ 
+   
+
 
 }

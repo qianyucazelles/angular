@@ -3,11 +3,13 @@ import { RouterModule, Routes } from '@angular/router';
 import { ParticipantComponent } from './participant/participant.component';
 import { FormationSessionComponent } from './formation-session/formation-session.component';
 import { FormateursComponent } from './formateurs/formateurs.component';
+import { HistoireComponent } from './histoire/histoire.component';
 
 const routes: Routes = [
-  {path: "participant", component: ParticipantComponent},
-  {path: "formation-session", component: FormationSessionComponent},
-  {path: "formateurs", component: FormateursComponent}
+  {path: "participants", component: ParticipantComponent},
+  {path: "sessions", component: FormationSessionComponent},
+  {path: "formateurs", component: FormateursComponent},
+  {path: "histoire", component: HistoireComponent}
 ];
 
 @NgModule({

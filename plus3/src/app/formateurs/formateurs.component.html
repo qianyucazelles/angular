@@ -1,17 +1,36 @@
-<p>formateurs works!</p>
 
-
-<div *ngIf="formateurs">
-    <h1>formateurs</h1>
-    <ul>
-      <li *ngFor="let formateur of formateurs">
-        <h2>{{ formateur.nom }} {{ formateur.prenom }}</h2>
-        <p>Email: {{ formateur.mail }}</p>
-        <h3>Subjects:</h3>
-        <ul>
-          <li *ngFor="let matiere of formateur.matieres">{{ matiere.nom }}</li>
-        </ul>
-      </li>
-    </ul>
+ <body>
+  <div *ngIf="formateurs">
+    <h1>Formateurs: </h1>
+    
+    <!--https://www.w3schools.com/howto/howto_js_filter_table.asp--> 
+    <input type="text" id="myInput"  placeholder="Search for names..">
+    
+    <table id="myTable" class="table table-dark table-hover">
+      <thead>
+        <tr>
+          <th>Nom</th>
+          <th>Prenom</th> 
+          <th>Email</th>
+          <th>Matieres</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let formateur of formateurs">
+          <td>{{ formateur.nom }}</td>
+          <td>{{ formateur.prenom  }}</td>
+          <td>{{ formateur.mail }}</td>
+          <td><li *ngFor="let matiere of formateur.matieres">{{ matiere.nom }}</li></td>
+          <td>
+            <button type="button" class="btn btn-secondary btn-sm" style="margin:5px;">Modify</button> 
+            <button type="button" class="btn btn-secondary btn-sm" style="margin:5px;">Suprimer</button>
+        </td>
+        </tr>
+        <button type="button" class="btn btn-secondary btn-sm" style="margin:5px;">Adjouter Formateur</button>
+      </tbody>
+    </table>
   </div>
-  
+
+ 
+</body> 

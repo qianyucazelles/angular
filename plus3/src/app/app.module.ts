@@ -10,6 +10,8 @@ import { MatiereComponent } from './matiere/matiere.component';
 import { FormateursComponent } from './formateurs/formateurs.component';
 import { FormateurService } from './formateurs/formateurService';
 import { HttpClientModule } from '@angular/common/http';
+import { HistoireComponent } from './histoire/histoire.component';
+import { SearchFilterPipe } from './search-filter.pipe';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { HttpClientModule } from '@angular/common/http';
     FormationComponent,
     FormationSessionComponent,
     FormateursComponent,
-    MatiereComponent
+    MatiereComponent,
+    HistoireComponent,
+    SearchFilterPipe
   ],
   imports: [
     BrowserModule,
