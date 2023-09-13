@@ -1,0 +1,41 @@
+[{
+    "id": 1,
+    "nom": "F",
+    "prenom": "Christophe",
+    "mail": "christophe@gmail.com",
+    "matieres": [
+        {
+            "id": 2,
+            "nom": "java"
+        },
+        {
+            "id": 3,
+            "nom": "sql"
+        }
+    ]
+},
+{
+    "id": 2,
+    "nom": "T",
+    "prenom": "Stephane",
+    "mail": "stephane@gmail.com",
+    "matieres": [
+        {
+            "id": 3,
+            "nom": "sql"
+        }
+    ]
+},
+{
+    "id": 3,
+    "nom": "G",
+    "prenom": "Bruno",
+    "mail": "bruno@gmail.com",
+    "matieres": [
+        {
+            "id": 1,
+            "nom": "soft skills"
+        }
+    ]
+}
+]

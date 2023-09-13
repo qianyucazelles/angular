@@ -6,19 +6,26 @@ import { AppComponent } from './app.component';
 import { ParticipantComponent } from './participant/participant.component';
 import { FormationComponent } from './formation/formation.component';
 import { FormationSessionComponent } from './formation-session/formation-session.component';
+import { MatiereComponent } from './matiere/matiere.component';
+import { FormateursComponent } from './formateurs/formateurs.component';
+import { FormateurService } from './formateurs/formateurService';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
     AppComponent,
     ParticipantComponent,
     FormationComponent,
-    FormationSessionComponent
+    FormationSessionComponent,
+    FormateursComponent,
+    MatiereComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [FormateurService],
   bootstrap: [AppComponent]
 })
 

@@ -1,0 +1,17 @@
+<p>formateurs works!</p>
+
+
+<div *ngIf="formateurs">
+    <h1>formateurs</h1>
+    <ul>
+      <li *ngFor="let formateur of formateurs">
+        <h2>{{ formateur.nom }} {{ formateur.prenom }}</h2>
+        <p>Email: {{ formateur.mail }}</p>
+        <h3>Subjects:</h3>
+        <ul>
+          <li *ngFor="let matiere of formateur.matieres">{{ matiere.nom }}</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  

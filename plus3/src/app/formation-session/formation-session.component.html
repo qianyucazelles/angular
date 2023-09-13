@@ -4,7 +4,7 @@
       <thead>
         <tr>
           <th>Formation</th>
-          <th>Begin Date</th>
+          <th>Begin Date</th> 
           <th>End Date</th>
           <th>Remaining Place/Capacity</th>
           <th></th>
@@ -12,7 +12,7 @@
       </thead>
       <tbody>
         <tr *ngFor="let major of sessionList">
-          <td>{{ major.formation?.nom }}</td>
+          <td>{{ major.formation.nom }}</td>
           <td>{{ major.dateDebut }}</td>
           <td>{{ major.dateFin }}</td>
           <td>{{ major.remainingPlace }}/{{ major.capacity }}</td>
