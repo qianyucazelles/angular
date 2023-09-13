@@ -1,1 +1,19 @@
 <p>participant works!</p>
+
+<div class="container-fluid">
+    <h1>All participants' info</h1>
+    <div class = "row">
+      <div class="card col-12 col-md-6 col-lg-4" *ngFor = "let participant of participantList"style="width: 18rem;">
+        <img src="assets/images/{{participant.gender}}.png" class="card-img-top" width = "100px" height="300px" alt="gender logo">
+        <div class="card-body">
+          <h5 class="card-title">{{participant.prenom}} {{participant.nom}} </h5>
+          <p class="card-text"> 
+            <b>Entreprise:</b> {{participant.entreprise}}<br>
+            <b>Mail:</b> {{participant.mail}}
+            <b>Adresse:</b> {{participant.adresse.getFullAdresse()}}
+          </p>
+          <a href="#" class="btn btn-primary">Details</a>
+        </div>
+      </div>
+    </div>
+  </div>

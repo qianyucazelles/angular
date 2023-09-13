@@ -4,13 +4,15 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ParticipantComponent } from './participant/participant.component';
-import { MajorComponent } from './major/major.component';
+import { FormationComponent } from './formation/formation.component';
+import { FormationSessionComponent } from './formation-session/formation-session.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ParticipantComponent,
-    MajorComponent
+    FormationComponent,
+    FormationSessionComponent
   ],
   imports: [
     BrowserModule,
@@ -19,4 +21,5 @@ import { MajorComponent } from './major/major.component';
   providers: [],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }
