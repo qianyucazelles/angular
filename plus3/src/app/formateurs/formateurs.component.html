@@ -3,8 +3,9 @@
   <div *ngIf="formateurs">
     <h1>Formateurs: </h1>
     
-    <!--https://www.w3schools.com/howto/howto_js_filter_table.asp--> 
-    <input type="text" id="myInput"  placeholder="Search for names..">
+    <!--https://angular.io/tutorial/first-app/first-app-lesson-13-->
+    <input type="text" placeholder="Search for names.." onkeydown="filterFormateurs(filter.value)" #filter>
+    <button class="primary" type="button" (click)="filterFormateurs(filter.value)">Search</button>
     
     <table id="myTable" class="table table-dark table-hover">
       <thead>
@@ -17,7 +18,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let formateur of formateurs">
+        <tr *ngFor="let formateur of filteredFormateurs">
           <td>{{ formateur.nom }}</td>
           <td>{{ formateur.prenom  }}</td>
           <td>{{ formateur.mail }}</td>
@@ -31,7 +32,9 @@
             </button>
         </td>
         </tr>
-        <button type="button" class="btn btn-secondary btn-sm" style="margin:5px;">Adjouter Formateur</button>
+        <tr>
+          <button type="button" class="btn btn-secondary btn-sm" style="margin:5px;"><i class="bi bi-person-fill-add"></i></button>
+        </tr>
       </tbody>
     </table>
   </div>

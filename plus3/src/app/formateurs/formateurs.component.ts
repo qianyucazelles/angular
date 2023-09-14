@@ -10,6 +10,7 @@ import { FormateurService } from '../services/formateur.service';
 })
 export class FormateursComponent implements OnInit {
   formateurs: Formateur[] =[];
+  filteredFormateurs: Formateur[] =[];
   searchText: string ="";
 
   constructor(private formateurService: FormateurService){}
@@ -17,6 +18,7 @@ export class FormateursComponent implements OnInit {
   ngOnInit(): void {
       this.formateurService.getFormateurs().subscribe((data)=>{
         this.formateurs = data;
+        this.filteredFormateurs = this.formateurs;
       });     
   }
  
@@ -25,6 +27,18 @@ export class FormateursComponent implements OnInit {
     this.formateurs.splice(index,1)
 
   }
+
+  filterFormateurs(text: string){
+    if(!text){
+      this.filteredFormateurs = this.formateurs;
+    }
+
+    this.filteredFormateurs = this.formateurs.filter(
+      formateur => formateur?.prenom.toLowerCase().includes(text.toLowerCase())
+    )
+  }
+
+
    
 
 
