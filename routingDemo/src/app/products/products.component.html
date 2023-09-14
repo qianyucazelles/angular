@@ -1,0 +1,38 @@
+
+
+<div class="container">
+    
+    <ng-template #errors class = "text-danger"> {{errorMessage}}</ng-template>
+    
+    <div *ngIf="products; else errors" class="card">
+        <div class="card-header">Product List</div>
+        <div class="card-body">
+            <input type="text" placeholder="Search for names.." #filter>
+            
+            <table id="myTable" class="table table-light table-hover">
+                <thead>
+                  <tr>
+                    <th>id</th>
+                    <th>Name</th> 
+                    <th>Price</th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let product of filteredProducts">
+                    <td>{{ product.id }}</td>
+                    <td>{{ product.name  }}</td>
+                    <td>{{ product.price }}</td>    
+                    <td>
+                      <button type="button" class="btn btn-secondary btn-sm" style="margin:5px;">Modify</button> 
+                      <button type="button" (click) = "handleDeleteProduct(product)" class="btn btn-secondary btn-sm" style="margin:5px;"><i class="bi bi-trash3"></i></button>
+                    </td>
+                  </tr>
+                  <button type="button" class="btn btn-secondary btn-sm" style="margin:5px;">Adjouter products</button>
+                </tbody>
+              </table>
+        </div>
+        
+    </div>
+</div>
+
