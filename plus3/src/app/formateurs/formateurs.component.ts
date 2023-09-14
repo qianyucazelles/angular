@@ -1,6 +1,7 @@
-import { FormateurService } from './formateurService';
+
 import { Component, OnInit } from '@angular/core';
 import { Formateur } from './formateur';
+import { FormateurService } from '../services/formateur.service';
 
 @Component({
   selector: 'app-formateurs',
@@ -16,9 +17,14 @@ export class FormateursComponent implements OnInit {
   ngOnInit(): void {
       this.formateurService.getFormateurs().subscribe((data)=>{
         this.formateurs = data;
-      });
+      });     
   }
  
+  handleDelete(formateur: any){
+    let index = this.formateurs?.indexOf(formateur);
+    this.formateurs.splice(index,1)
+
+  }
    
 
 

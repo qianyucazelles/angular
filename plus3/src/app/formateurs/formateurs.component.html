@@ -23,8 +23,12 @@
           <td>{{ formateur.mail }}</td>
           <td><li *ngFor="let matiere of formateur.matieres">{{ matiere.nom }}</li></td>
           <td>
-            <button type="button" class="btn btn-secondary btn-sm" style="margin:5px;">Modify</button> 
-            <button type="button" class="btn btn-secondary btn-sm" style="margin:5px;">Suprimer</button>
+            <button type="button" class="btn btn-secondary btn-sm" style="margin:5px;">
+              <i class="bi bi-pencil-square"></i>
+            </button> 
+            <button type="button" (click) = "handleDelete(formateur)" class="btn btn-secondary btn-sm" style="margin:5px;">
+              <i class="bi bi-trash3"></i>
+            </button>
         </td>
         </tr>
         <button type="button" class="btn btn-secondary btn-sm" style="margin:5px;">Adjouter Formateur</button>

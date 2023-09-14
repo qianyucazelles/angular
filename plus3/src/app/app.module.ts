@@ -8,7 +8,6 @@ import { FormationComponent } from './formation/formation.component';
 import { FormationSessionComponent } from './formation-session/formation-session.component';
 import { MatiereComponent } from './matiere/matiere.component';
 import { FormateursComponent } from './formateurs/formateurs.component';
-import { FormateurService } from './formateurs/formateurService';
 import { HttpClientModule } from '@angular/common/http';
 import { HistoireComponent } from './histoire/histoire.component';
 import { SearchFilterPipe } from './search-filter.pipe';
@@ -29,7 +28,7 @@ import { SearchFilterPipe } from './search-filter.pipe';
     AppRoutingModule,
     HttpClientModule
   ],
-  providers: [FormateurService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 

@@ -1,10 +1,13 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Formateur } from '../formateurs/formateur';
 import { Observable } from 'rxjs';
-import { Formateur } from './formateur';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class FormateurService {
+
   constructor(private http: HttpClient) {}
 
   getFormateurs(): Observable<Formateur[]> {
