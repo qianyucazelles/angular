@@ -1,0 +1,111 @@
+<p>user-form works!</p>
+<div class="container">
+    <div [hidden]="submitted">
+      <h1>User form</h1>
+      <form (ngSubmit)="onSubmit()" #userForm="ngForm">
+        
+        <div class="form-group">
+          <label for="nom">nom</label>
+          <input type="text" class="form-control" id="nom"
+                 required
+                 [(ngModel)]="model.nom" nom="nom"
+                 #nom="ngModel">
+          <div [hidden]="nom.valid || nom.pristine"
+               class="alert alert-danger">
+            nom is required
+          </div>
+          </div>
+        
+          <div class="form-group">
+            <label for="prenom">prenom</label>
+            <input type="text" class="form-control" id="prenom"
+                   required
+                   [(ngModel)]="model.prenom" prenom="prenom"
+                   #prenom="ngModel">
+            <div [hidden]="prenom.valid || prenom.pristine"
+                 class="alert alert-danger">
+              prenom is required
+            </div>
+            </div>
+          
+
+        <div class="form-group">
+          <label for="mail">e-mail</label>
+          <input type="text" class="form-control" id="mail"
+                 required
+                 [(ngModel)]="model.mail" mail="mail"
+                 #mail="ngModel">
+          <div [hidden]="mail.valid || mail.pristine"
+               class="alert alert-danger">
+            mail is required
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="numeroVoie">numeroVoie</label>
+          <input type="number" class="form-control" id="numeroVoie"
+                 required
+                 [(ngModel)]="model.numeroVoie" numeroVoie="numeroVoie"
+                 #numeroVoie="ngModel">
+          <div [hidden]="numeroVoie.valid || numeroVoie.pristine"
+               class="alert alert-danger">
+            numeroVoie is required
+          </div>
+        </div>
+  
+        <div class="form-group">
+          <label for="typedeVoie">Type de Voie</label>
+          <select class="form-control" id="typedeVoie"
+                  required
+                  [(ngModel)]="model.typedeVoie" name="typedeVoie"
+                  #typedeVoie="ngModel">
+            <option *ngFor="let typedeVoie of typedeVoies" [value]="typedeVoie">{{typedeVoie}}</option>
+          </select>
+          <div [hidden]="typedeVoie.valid || typedeVoie.pristine" class="alert alert-danger">
+            Power is required
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="nomdeVoie">nomdeVoie</label>
+          <input type="text" class="form-control" id="nomdeVoie"
+                 required
+                 [(ngModel)]="model.nomdeVoie" nomdeVoie="nomdeVoie"
+                 #nomdeVoie="ngModel">
+          <div [hidden]="nomdeVoie.valid || nomdeVoie.pristine"
+               class="alert alert-danger">
+            nomdeVoie is required
+          </div>
+          </div>
+  
+        <button type="submit" class="btn btn-success" [disabled]="!userForm.form.valid">Submit</button>
+        <button type="button" class="btn btn-default" (click)="newUser(); userForm.reset()">New user</button>
+      </form>
+    </div>
+  
+    <div [hidden]="!submitted">
+      <h2>You submitted the following:</h2>
+      <div class="row">
+        <div class="col-xs-3">Name</div>
+        <div class="col-xs-9">{{ model.name }}</div>
+      </div>
+      <div class="row">
+        <div class="col-xs-3">email</div>
+        <div class="col-xs-9">{{ model.mail }}</div>
+      </div>
+      <div class="row">
+        <div class="col-xs-3">numeroVoie</div>
+        <div class="col-xs-9">{{ model.numeroVoie }}</div>
+      </div>
+      <div class="row">
+        <div class="col-xs-3">typedeVoie</div>
+        <div class="col-xs-9">{{ model.typedeVoie }}</div>
+      </div>
+      <div class="row">
+        <div class="col-xs-3">nomdeVoie</div>
+        <div class="col-xs-9">{{ model.nomdeVoie }}</div>
+      </div>
+      <br>
+      <button type="button" class="btn btn-primary" (click)="submitted=false">Edit</button>
+    </div>
+  </div>
