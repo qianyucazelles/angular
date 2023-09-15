@@ -11,6 +11,7 @@ export class UserFormComponent {
   
   typedeVoies = ["boulevard","rue","impass"];
   genders = ["female","male"]
+  
   model = new User(
                   1,
                   "F",

@@ -28,6 +28,69 @@
             </div>
             </div>
           
+        <div #adresseForm>
+          <div class="form-group">
+            <label for="numeroVoie">numeroVoie</label>
+            <input type="number" class="form-control" id="numeroVoie"
+                   required
+                   [(ngModel)]="model.numeroVoie" numeroVoie="numeroVoie"
+                   #numeroVoie="ngModel">
+            <div [hidden]="numeroVoie.valid || numeroVoie.pristine"
+                 class="alert alert-danger">
+              numeroVoie is required
+            </div>
+          </div>
+    
+          <div class="form-group">
+            <label for="typedeVoie">Type de Voie</label>
+            <select class="form-control" id="typedeVoie"
+                    required
+                    [(ngModel)]="model.typedeVoie" name="typedeVoie"
+                    #typedeVoie="ngModel">
+              <option *ngFor="let typedeVoie of typedeVoies" [value]="typedeVoie">{{typedeVoie}}</option>
+            </select>
+            <div [hidden]="typedeVoie.valid || typedeVoie.pristine" class="alert alert-danger">
+              Power is required
+            </div>
+          </div>
+  
+          <div class="form-group">
+            <label for="nomdeVoie">nomdeVoie</label>
+            <input type="text" class="form-control" id="nomdeVoie"
+                   required
+                   [(ngModel)]="model.nomdeVoie" nomdeVoie="nomdeVoie"
+                   #nomdeVoie="ngModel">
+            <div [hidden]="nomdeVoie.valid || nomdeVoie.pristine"
+                 class="alert alert-danger">
+              nomdeVoie is required
+            </div>
+            </div>
+
+            <div class="form-group">
+              <label for="codePostal">codePostal</label>
+              <input type="text" class="form-control" id="codePostal"
+                     required
+                     [(ngModel)]="model.codePostal" codePostal="codePostal"
+                     #codePostal="ngModel">
+              <div [hidden]="codePostal.valid || codePostal.pristine"
+                   class="alert alert-danger">
+                codePostal is required
+              </div>
+              </div>
+
+              <div class="form-group">
+                <label for="ville">ville</label>
+                <input type="text" class="form-control" id="ville"
+                       required
+                       [(ngModel)]="model.ville" ville="ville"
+                       #ville="ngModel">
+                <div [hidden]="ville.valid || ville.pristine"
+                     class="alert alert-danger">
+                  ville is required
+                </div>
+                </div>
+            
+        </div>
 
         <div class="form-group">
           <label for="mail">e-mail</label>
@@ -40,43 +103,20 @@
             mail is required
           </div>
         </div>
-
+       
         <div class="form-group">
-          <label for="numeroVoie">numeroVoie</label>
-          <input type="number" class="form-control" id="numeroVoie"
+          <label for="entreprise">entreprise</label>
+          <input type="text" class="form-control" id="entreprise"
                  required
-                 [(ngModel)]="model.numeroVoie" numeroVoie="numeroVoie"
-                 #numeroVoie="ngModel">
-          <div [hidden]="numeroVoie.valid || numeroVoie.pristine"
+                 [(ngModel)]="model.entreprise" entreprise="entreprise"
+                 #entreprise="ngModel">
+          <div [hidden]="entreprise.valid || entreprise.pristine"
                class="alert alert-danger">
-            numeroVoie is required
+            entreprise is required
           </div>
-        </div>
-  
-        <div class="form-group">
-          <label for="typedeVoie">Type de Voie</label>
-          <select class="form-control" id="typedeVoie"
-                  required
-                  [(ngModel)]="model.typedeVoie" name="typedeVoie"
-                  #typedeVoie="ngModel">
-            <option *ngFor="let typedeVoie of typedeVoies" [value]="typedeVoie">{{typedeVoie}}</option>
-          </select>
-          <div [hidden]="typedeVoie.valid || typedeVoie.pristine" class="alert alert-danger">
-            Power is required
           </div>
-        </div>
 
-        <div class="form-group">
-          <label for="nomdeVoie">nomdeVoie</label>
-          <input type="text" class="form-control" id="nomdeVoie"
-                 required
-                 [(ngModel)]="model.nomdeVoie" nomdeVoie="nomdeVoie"
-                 #nomdeVoie="ngModel">
-          <div [hidden]="nomdeVoie.valid || nomdeVoie.pristine"
-               class="alert alert-danger">
-            nomdeVoie is required
-          </div>
-          </div>
+        
   
         <button type="submit" class="btn btn-success" [disabled]="!userForm.form.valid">Submit</button>
         <button type="button" class="btn btn-default" (click)="newUser(); userForm.reset()">New user</button>
