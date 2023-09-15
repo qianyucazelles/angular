@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { User } from '../user';
-import { Adresse } from '../adresse';
 
 @Component({
   selector: 'app-user-form',
@@ -10,23 +9,14 @@ import { Adresse } from '../adresse';
 export class UserFormComponent {
   
   typedeVoies = ["boulevard","rue","impass"];
-  genders = ["female","male"]
+
   model = new User(
-                  1,
-                  "F",
-                  "Romain",
-                  this.genders[0],
-                  new Adresse(
-                        1,
-                        2,
-                        this.typedeVoies[0],
-                        "Cadeneaux",
-                        "13170",
-                        "LPM"
-                        ),
-                  "romain@gmail.com",
-                  "pss"
-                  );
+      1,
+     'Peter',
+     "abc@gmail.com",
+      3,
+      this.typedeVoies[0],
+      "gambetta");
 
   submitted = false;
 
@@ -35,20 +25,11 @@ export class UserFormComponent {
   newUser(){
     this.model = new User(
       1,
-      "F",
-      "Romain",
-      "male",
-      new Adresse(
-            1,
-            2,
-            this.typedeVoies[0],
-            "Cadeneaux",
-            "13170",
-            "LPM"
-            ),
-      "romain@gmail.com",
-      "pss"
-      )
+     'yourname',
+     "abc@gmail.com",
+      3,
+      this.typedeVoies[0],
+      "gambetta")
   }
 
 
