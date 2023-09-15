@@ -8,7 +8,7 @@
           <label for="nom">nom</label>
           <input type="text" class="form-control" id="nom"
                  required
-                 [(ngModel)]="model.nom" nom="nom"
+                 [(ngModel)]="model.nom" name="nom"
                  #nom="ngModel">
           <div [hidden]="nom.valid || nom.pristine"
                class="alert alert-danger">
@@ -20,7 +20,7 @@
             <label for="prenom">prenom</label>
             <input type="text" class="form-control" id="prenom"
                    required
-                   [(ngModel)]="model.prenom" prenom="prenom"
+                   [(ngModel)]="model.prenom" name="prenom"
                    #prenom="ngModel">
             <div [hidden]="prenom.valid || prenom.pristine"
                  class="alert alert-danger">
@@ -33,7 +33,7 @@
             <label for="numeroVoie">numeroVoie</label>
             <input type="number" class="form-control" id="numeroVoie"
                    required
-                   [(ngModel)]="model.numeroVoie" numeroVoie="numeroVoie"
+                   [(ngModel)]="model.adresse.numeroVoie" name="numeroVoie"
                    #numeroVoie="ngModel">
             <div [hidden]="numeroVoie.valid || numeroVoie.pristine"
                  class="alert alert-danger">
@@ -45,12 +45,12 @@
             <label for="typedeVoie">Type de Voie</label>
             <select class="form-control" id="typedeVoie"
                     required
-                    [(ngModel)]="model.typedeVoie" name="typedeVoie"
+                    [(ngModel)]="model.adresse.typeVoie" name="typedeVoie"
                     #typedeVoie="ngModel">
               <option *ngFor="let typedeVoie of typedeVoies" [value]="typedeVoie">{{typedeVoie}}</option>
             </select>
             <div [hidden]="typedeVoie.valid || typedeVoie.pristine" class="alert alert-danger">
-              Power is required
+              typedeVoie is required
             </div>
           </div>
   
@@ -58,7 +58,7 @@
             <label for="nomdeVoie">nomdeVoie</label>
             <input type="text" class="form-control" id="nomdeVoie"
                    required
-                   [(ngModel)]="model.nomdeVoie" nomdeVoie="nomdeVoie"
+                   [(ngModel)]="model.adresse.nomVoie" name="nomdeVoie"
                    #nomdeVoie="ngModel">
             <div [hidden]="nomdeVoie.valid || nomdeVoie.pristine"
                  class="alert alert-danger">
@@ -70,7 +70,7 @@
               <label for="codePostal">codePostal</label>
               <input type="text" class="form-control" id="codePostal"
                      required
-                     [(ngModel)]="model.codePostal" codePostal="codePostal"
+                     [(ngModel)]="model.adresse.codePostal" name="codePostal"
                      #codePostal="ngModel">
               <div [hidden]="codePostal.valid || codePostal.pristine"
                    class="alert alert-danger">
@@ -82,7 +82,7 @@
                 <label for="ville">ville</label>
                 <input type="text" class="form-control" id="ville"
                        required
-                       [(ngModel)]="model.ville" ville="ville"
+                       [(ngModel)]="model.adresse.ville" name="ville"
                        #ville="ngModel">
                 <div [hidden]="ville.valid || ville.pristine"
                      class="alert alert-danger">
@@ -96,7 +96,7 @@
           <label for="mail">e-mail</label>
           <input type="text" class="form-control" id="mail"
                  required
-                 [(ngModel)]="model.mail" mail="mail"
+                 [(ngModel)]="model.mail" name="mail"
                  #mail="ngModel">
           <div [hidden]="mail.valid || mail.pristine"
                class="alert alert-danger">
@@ -108,7 +108,7 @@
           <label for="entreprise">entreprise</label>
           <input type="text" class="form-control" id="entreprise"
                  required
-                 [(ngModel)]="model.entreprise" entreprise="entreprise"
+                 [(ngModel)]="model.entreprise" name="entreprise"
                  #entreprise="ngModel">
           <div [hidden]="entreprise.valid || entreprise.pristine"
                class="alert alert-danger">
@@ -122,30 +122,33 @@
         <button type="button" class="btn btn-default" (click)="newUser(); userForm.reset()">New user</button>
       </form>
     </div>
-  
+
+
+
     <div [hidden]="!submitted">
-      <h2>You submitted the following:</h2>
-      <div class="row">
-        <div class="col-xs-3">Name</div>
-        <div class="col-xs-9">{{ model.name }}</div>
-      </div>
-      <div class="row">
-        <div class="col-xs-3">email</div>
-        <div class="col-xs-9">{{ model.mail }}</div>
-      </div>
-      <div class="row">
-        <div class="col-xs-3">numeroVoie</div>
-        <div class="col-xs-9">{{ model.numeroVoie }}</div>
-      </div>
-      <div class="row">
-        <div class="col-xs-3">typedeVoie</div>
-        <div class="col-xs-9">{{ model.typedeVoie }}</div>
-      </div>
-      <div class="row">
-        <div class="col-xs-3">nomdeVoie</div>
-        <div class="col-xs-9">{{ model.nomdeVoie }}</div>
-      </div>
-      <br>
-      <button type="button" class="btn btn-primary" (click)="submitted=false">Edit</button>
+    <h2>You submitted the following:</h2>
+    <div class="row">
+      <div class="col-xs-3">Nom</div>
+      <div class="col-xs-9">{{ model.nom }}</div>
     </div>
-  </div>
+    <div class="row">
+      <div class="col-xs-3">Prenom</div>
+      <div class="col-xs-9">{{ model.prenom }}</div>
+    </div>
+    <div class="row">
+      <div class="col-xs-3">Adresse</div>
+      <div class="col-xs-9">{{ model.adresse.getFullAdresse() }}</div>
+    </div>
+    <div class="row">
+      <div class="col-xs-3">email</div>
+      <div class="col-xs-9">{{ model.mail }}</div>
+    </div>
+    <div class="row">
+      <div class="col-xs-3">Entreprise</div>
+      <div class="col-xs-9">{{ model.entreprise }}</div>
+    </div>
+    
+    <br>
+    <button type="button" class="btn btn-primary" (click)="submitted=false">Edit</button>
+    </div>
+    </div>    

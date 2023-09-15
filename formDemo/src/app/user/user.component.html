@@ -1,0 +1,17 @@
+<div class="container-fluid">
+    <h1>All users' info</h1>
+    <div class = "row">
+      <div class="card col-12 col-md-6 col-lg-4" *ngFor = "let user of users"style="width: 18rem;">
+        <img src="assets/images/{{user.gender}}.png" class="card-img-top" width = "100px" height="300px" alt="gender logo">
+        <div class="card-body">
+          <h5 class="card-title">{{user.prenom}} {{user.nom}} </h5>
+          <p class="card-text"> 
+            <b>Entreprise:</b> {{user.entreprise}}<br>
+            <b>Mail:</b> {{user.mail}}
+            <b>Adresse:</b> {{user.adresse.ville}}
+          </p>
+          <a href="#" class="btn btn-secondary btn-sm">Details</a>
+        </div>
+      </div>
+    </div>
+  </div>

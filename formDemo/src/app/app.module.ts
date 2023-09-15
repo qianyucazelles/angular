@@ -8,13 +8,17 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { UserFormComponent } from './user-form/user-form.component';
 import { AdresseFormComponent } from './adresse-form/adresse-form.component';
+import { UserComponent } from './user/user.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeroFormComponent,
     UserFormComponent,
-    AdresseFormComponent
+    AdresseFormComponent,
+    UserComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
