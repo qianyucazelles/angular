@@ -16,8 +16,8 @@ export class FormateursComponent implements OnInit {
   constructor(private formateurService: FormateurService){}
 
   ngOnInit(): void {
-      this.formateurService.getFormateurs().subscribe((data)=>{
-        this.formateurs = data;
+      this.formateurService.getAllFormateurs().then((formateurs: Formateur[])=>{
+        this.formateurs = formateurs;
         this.filteredFormateurs = this.formateurs;
       });     
   }

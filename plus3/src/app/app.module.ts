@@ -12,6 +12,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { HistoireComponent } from './histoire/histoire.component';
 import { SearchFilterPipe } from './search-filter.pipe';
 
+import { ParticipantFormComponent } from './participant-form/participant-form.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,7 +23,8 @@ import { SearchFilterPipe } from './search-filter.pipe';
     FormateursComponent,
     MatiereComponent,
     HistoireComponent,
-    SearchFilterPipe
+    SearchFilterPipe,
+    ParticipantFormComponent
   ],
   imports: [
     BrowserModule,
