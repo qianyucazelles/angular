@@ -13,6 +13,7 @@ import { HistoireComponent } from './histoire/histoire.component';
 import { SearchFilterPipe } from './search-filter.pipe';
 
 import { ParticipantFormComponent } from './participant-form/participant-form.component';
+import { ParticipantDetailsComponent } from './participant-details/participant-details.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { ParticipantFormComponent } from './participant-form/participant-form.co
     MatiereComponent,
     HistoireComponent,
     SearchFilterPipe,
-    ParticipantFormComponent
+    ParticipantFormComponent,
+    ParticipantDetailsComponent
   ],
   imports: [
     BrowserModule,

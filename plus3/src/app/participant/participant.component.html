@@ -1,17 +1,48 @@
-<div class="container-fluid">
-    <h1>All participants' info</h1>
-    <div class = "row">
-      <div class="card col-12 col-md-6 col-lg-4" *ngFor = "let participant of participantList"style="width: 18rem;">
-        <img src="assets/images/{{participant.gender}}.png" class="card-img-top" width = "100px" height="300px" alt="gender logo">
-        <div class="card-body">
-          <h5 class="card-title">{{participant.prenom}} {{participant.nom}} </h5>
-          <p class="card-text"> 
-            <b>Entreprise:</b> {{participant.entreprise}}<br>
-            <b>Mail:</b> {{participant.mail}}
-            <b>Adresse:</b> {{participant.adresse.getFullAdresse()}}
-          </p>
-          <a href="#" class="btn btn-secondary btn-sm">Details</a>
-        </div>
-      </div>
-    </div>
+
+
+  
+ <body>
+  <div *ngIf="participants">
+    <h1>Participants: </h1>
+    
+    <!--https://angular.io/tutorial/first-app/first-app-lesson-13-->
+    <input type="text" placeholder="Search for names.." onkeydown="filterParticipants(filter.value)" #filter>
+    <button class="primary" type="button" (click)="filterParticipants(filter.value)">Search</button>
+    
+    <table id="myTable" class="table table-dark table-hover">
+      <thead>
+        <tr>
+          <th>id</th>
+          <th>Nom</th>
+          <th>Prenom</th> 
+          <th>Email</th>
+          <th>Ville</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let participant of filteredParticipants">
+          <td>{{ participant.id }}</td>
+          <td>{{ participant.nom }}</td>
+          <td>{{ participant.prenom  }}</td>
+          <td>{{ participant.mail }}</td>
+          <td>{{ participant.adresse.ville }}</td>
+          <td>
+            <button type="button" [routerLink]="['/user/bob']" class="btn btn-secondary btn-sm" style="margin:5px;">
+              <i class="bi bi-info-square"></i>
+            </button> 
+            <button type="button" (click) = "handleDelete(participant)" class="btn btn-secondary btn-sm" style="margin:5px;">
+              <i class="bi bi-trash3"></i>
+            </button>
+        </td>
+
+        </tr>
+        <tr>
+          <button type="button" class="btn btn-secondary btn-sm" style="margin:5px;"><i class="bi bi-person-fill-add"></i></button>
+        </tr>
+      </tbody>
+    </table>
   </div>
+
+ 
+</body> 
