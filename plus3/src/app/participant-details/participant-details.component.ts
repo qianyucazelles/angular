@@ -12,14 +12,14 @@ import { ParticipantService } from '../services/participant.service';
 
 export class ParticipantDetailsComponent {
 participant!: Participant;
-update: boolean;
+
 
   constructor(
     private router: Router,
     private route: ActivatedRoute,
     private participantService: ParticipantService,
     private location: Location
-  ) { this.update = false;}
+  ) { }
 
   ngOnInit(): void {
     this.getParticipant();
@@ -42,12 +42,8 @@ update: boolean;
     this.location.back();
   }
 
-  setUpdate(): void{
-    this.update = true;
-  }
-
   updateParticipant(){
-    this.router.navigate(['/participants/register'], {state: {participant : this.participant}})
+    this.router.navigate(['/participants/register/'+this.participant.id], {state: {participant : this.participant}})
   }
 
 }

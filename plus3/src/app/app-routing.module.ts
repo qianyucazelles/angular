@@ -8,6 +8,7 @@ import { HistoireComponent } from './histoire/histoire.component';
 import { ParticipantDetailsComponent } from './participant-details/participant-details.component';
 
 const routes: Routes = [
+  {path: "participants/register/:id", component: ParticipantFormComponent},
   {path: "participants/register", component: ParticipantFormComponent},
   {path: "participants", component: ParticipantComponent},
   {path: "participants/:id", component: ParticipantDetailsComponent},

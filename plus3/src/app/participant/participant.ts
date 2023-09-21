@@ -1,4 +1,5 @@
-import { Adresse } from './adresse';
+import { Adresse } from "./adresse";
+
 export interface Participant{
     id: number;
     nom: string;

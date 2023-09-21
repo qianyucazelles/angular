@@ -16,16 +16,18 @@
           <th>Nom</th>
           <th>Prenom</th> 
           <th>Email</th>
+          <th>Entreprise</th>
           <th>Ville</th>
           <th></th>
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let participant of participants">
+        <tr *ngFor="let participant of filteredParticipants">
           <td>{{ participant.id }}</td>
           <td>{{ participant.nom }}</td>
           <td>{{ participant.prenom  }}</td>
           <td>{{ participant.mail }}</td>
+          <td>{{ participant.entreprise }}</td>
           <td>{{ participant.adresse.ville }}</td>
           <td>
             <button type="button" class="btn btn-secondary btn-sm" style="margin:5px;">
@@ -35,8 +37,6 @@
             <button type="button" (click) = "delete(participant.id)" class="btn btn-secondary btn-sm" style="margin:5px;">
               <i class="bi bi-trash3"></i> Delete
             </button>
-            <button type="button" class="delete" title="delete hero"
-            (click)="delete(participant.id)">x</button>
         </td>
 
         </tr>

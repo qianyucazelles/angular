@@ -1,21 +1,27 @@
-<div *ngIf="participant&&!update" class="container-fluid">
 
-  <div class = "row">
-    <div class="card col-12 col-md-6 col-lg-4" style="width: 18rem;"></div>
-          <img src="assets/images/male.png" class="card-img-top" width = "100px" height="300px" alt="gender logo">
-      <div class="card-body">
-        <h5 class="card-title">{{participant.prenom}} {{participant.nom}} </h5>
-        <p class="card-text"> 
-          <b>Entreprise:</b> {{participant.entreprise}}<br>
-          <b>Mail:</b> {{participant.mail}}
-          <b>Adresse:</b> {{participant.adresse}}
-        </p>
-        <a class="btn btn-secondary btn-sm" (click)="updateParticipant()">Update</a>
-        <a class="btn btn-secondary btn-sm" (click)="goBack()">Go back</a>
-      </div>
-  </div>
+<div class = "row">
+  <div class="card col-12 col-md-6 col-lg-4"  style="width: 18rem;">
+    <img src="assets/images/male.png" class="card-img-top" alt="...">
+    <div class="card-body">
+      <p>Nom: {{participant.nom}}</p>
+      <p>Prenom: {{participant.prenom}}</p>
+      <p>E-mail: {{participant.mail}}</p>
+      <p>Entreprise: {{participant.entreprise}}</p>
+      
     </div>
+  </div>
 
-<div *ngIf="participant&&update" #userform>
-  <app-participant-form></app-participant-form>
+  <div class="card col-12 col-md-6 col-lg-4"  style="width: 18rem;">
+    <p>Adresese</p>
+    <p>Numero de Voie: {{participant.adresse.numeroVoie}}</p>
+    <p>Type de Voie: {{participant.adresse.typeVoie}}</p>
+    <p>Nom de Voie: {{participant.adresse.nomVoie}}</p>
+    <p>Code Postal: {{participant.adresse.codePostal}}</p>
+    <p>Ville: {{participant.adresse.ville}}</p>
+    <a class="btn btn-secondary btn-sm" (click)="updateParticipant()">Update</a>
+    <br>
+    <a class="btn btn-secondary btn-sm" (click)="goBack()">Go back</a>
+  </div>
+
 </div>
+
