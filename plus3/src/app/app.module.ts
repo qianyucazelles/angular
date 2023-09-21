@@ -14,6 +14,7 @@ import { SearchFilterPipe } from './search-filter.pipe';
 
 import { ParticipantFormComponent } from './participant-form/participant-form.component';
 import { ParticipantDetailsComponent } from './participant-details/participant-details.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { ParticipantDetailsComponent } from './participant-details/participant-d
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
     HttpClientModule
   ],
   providers: [],

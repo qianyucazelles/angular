@@ -16,15 +16,19 @@ export class ParticipantComponent {
   constructor(private participantService: ParticipantService){}
 
   ngOnInit(): void {
-      this.participantService.getAllparticipants().then((participants: Participant[])=>{
-        this.participants = participants;
-        this.filteredParticipants = this.participants;
-      });     
+      this.getParticipants();
+      this.filteredParticipants = this.participants;
   }
- 
-  handleDelete(participant: any){
-    let index = this.participants?.indexOf(participant);
-    this.participants.splice(index,1)
+  
+  getParticipants():void{
+    this.participantService.getParticipants()
+    .subscribe(participants => this.participants = participants)
+  }
+
+  delete(participantId: number){
+    this.participantService.deleteParticipant(participantId)
+    .subscribe(this.getParticipants);
+    
   }
 
   filterParticipants(text: string){

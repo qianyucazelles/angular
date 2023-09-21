@@ -21,24 +21,29 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let participant of filteredParticipants">
+        <tr *ngFor="let participant of participants">
           <td>{{ participant.id }}</td>
           <td>{{ participant.nom }}</td>
           <td>{{ participant.prenom  }}</td>
           <td>{{ participant.mail }}</td>
           <td>{{ participant.adresse.ville }}</td>
           <td>
-            <button type="button" [routerLink]="['/user/bob']" class="btn btn-secondary btn-sm" style="margin:5px;">
+            <button type="button" class="btn btn-secondary btn-sm" style="margin:5px;">
               <i class="bi bi-info-square"></i>
+              <a routerLink="/participants/{{participant.id}}" > Details</a>
             </button> 
-            <button type="button" (click) = "handleDelete(participant)" class="btn btn-secondary btn-sm" style="margin:5px;">
-              <i class="bi bi-trash3"></i>
+            <button type="button" (click) = "delete(participant.id)" class="btn btn-secondary btn-sm" style="margin:5px;">
+              <i class="bi bi-trash3"></i> Delete
             </button>
+            <button type="button" class="delete" title="delete hero"
+            (click)="delete(participant.id)">x</button>
         </td>
 
         </tr>
         <tr>
-          <button type="button" class="btn btn-secondary btn-sm" style="margin:5px;"><i class="bi bi-person-fill-add"></i></button>
+          <button type="button" class="btn btn-secondary btn-sm" style="margin:5px;"><i class="bi bi-person-fill-add"></i>
+            <a routerLink="/participants/register" > Ajouter</a>
+          </button>
         </tr>
       </tbody>
     </table>
