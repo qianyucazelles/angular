@@ -12,6 +12,7 @@ export class AppComponent {
     { name:"Participants", url: "/participants"},
     {name:"Sessions", url: "/sessions"},
     {name:"Formateurs", url: "/formateurs"},
+    {name:"Formations", url: "/formations"},
     {name:"Notre Histoire", url: "/histoire"}
   ];
 

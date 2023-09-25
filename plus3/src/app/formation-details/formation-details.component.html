@@ -1,0 +1,13 @@
+<p>formation-details works!</p>
+
+<div *ngIf="formation">
+    <div class="card-body">
+        <p>Nom : {{formation!.nom}}</p>
+        <!--<p>Description : {{formation.description}}</p>-->
+    </div>
+    <div>
+    <button class="btn btn-secondary btn-sm"  (click)="updateFormation()">Update</button>
+    <br>
+    <button class="btn btn-secondary btn-sm"  (click)="goBack()">Go back</button>
+    </div>
+</div>

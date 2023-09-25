@@ -6,6 +6,11 @@ import { FormationSessionComponent } from './formation-session/formation-session
 import { FormateursComponent } from './formateurs/formateurs.component';
 import { HistoireComponent } from './histoire/histoire.component';
 import { ParticipantDetailsComponent } from './participant-details/participant-details.component';
+import { FormateurFormComponent } from './formateur-form/formateur-form.component';
+import { FormateurDetailsComponent } from './formateur-details/formateur-details.component';
+import { FormationsComponent } from './formations/formations.component';
+import { FormationFormComponent } from './formation-form/formation-form.component';
+import { FormationDetailsComponent } from './formation-details/formation-details.component';
 
 const routes: Routes = [
   {path: "participants/register/:id", component: ParticipantFormComponent},
@@ -13,8 +18,17 @@ const routes: Routes = [
   {path: "participants", component: ParticipantComponent},
   {path: "participants/:id", component: ParticipantDetailsComponent},
   {path: "sessions", component: FormationSessionComponent},
+    
+  //{path: "formateurs/:id", component: FormateurDetailsComponent},
   {path: "formateurs", component: FormateursComponent},
-  {path: "histoire", component: HistoireComponent}
+  {path: "formateurs/register", component: FormateurFormComponent},
+
+  {path: "formations", component: FormationsComponent},
+  {path: "formations/register/:id", component: FormationFormComponent},
+  {path: "formations/register", component: FormationFormComponent},
+  {path: "formations/:id", component: FormationDetailsComponent},
+
+  {path: "histoire", component: HistoireComponent},
 ];
 
 @NgModule({

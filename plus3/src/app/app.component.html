@@ -1,8 +1,9 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<nav class="navbar navbar-expand-lg sticky-top navbar-dark bg-dark">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">
-        <img src="/assets/images/logo.png"  alt="logo" width="100" height=auto>Plus3 IT Training</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <img src="/assets/images/logo.png" alt="logo" width="100" height=auto>Plus3 IT Training</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -11,14 +12,11 @@
           <a class="nav-link active" aria-current="page" href="#">Home</a>
         </li>
 
-        <li class="nav-item" *ngFor = "let action of actions">
-          <a 
-            (click)="setCurrentAction(action)"
-            routerLink="{{action.url}}"
-            [class]="action==currentAction? 'nav-link active':'nav-link'"
-          >
-          {{action.name}}
-        </a>
+        <li class="nav-item" *ngFor="let action of actions">
+          <a (click)="setCurrentAction(action)" routerLink="{{action.url}}"
+            [class]="action==currentAction? 'nav-link active':'nav-link'">
+            {{action.name}}
+          </a>
         </li>
 
       </ul>
@@ -30,6 +28,32 @@
     </div>
   </div>
 </nav>
+
+
+
+<div class="footer-basic">
+  <footer>
+      <div class="social"><a href="https://www.linkedin.com/" target="_blank"><i class="bi bi-linkedin"></i></a><a href="https://www.twitter.com/" target="_blank"><i class="bi bi-twitter"></i></a><a href="https://www.facebook.com/" target="_blank"><i class="bi bi-facebook"></i></a><a href="https://www.youtube.com/" target="_blank"><i class="bi bi-youtube"></i></a></div>
+      <ul class="list-inline">
+          <li class="list-inline-item"><a href="#">Home</a></li>
+          <li class="list-inline-item"><a href="#">Services</a></li>
+          <li class="list-inline-item"><a href="#">About</a></li>
+          <li class="list-inline-item"><a href="#">Terms</a></li>
+          <li class="list-inline-item"><a href="#">Privacy Policy</a></li>
+      </ul>
+
+        <div class="bg-light py-2">
+    <div class="container text-center">
+      <p class="text-muted mb-0 py-2">© 2023 Plus3 All rights reserved.</p>
+    </div>
+  </div>
+  </footer>
+
+</div>
+
+
+
+
 
 
 <router-outlet></router-outlet>

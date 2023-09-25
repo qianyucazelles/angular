@@ -1,17 +1,16 @@
-
- <body>
+<body>
   <div *ngIf="formateurs">
     <h1>Formateurs: </h1>
-    
+
     <!--https://angular.io/tutorial/first-app/first-app-lesson-13-->
     <input type="text" placeholder="Search for names.." onkeydown="filterFormateurs(filter.value)" #filter>
     <button class="primary" type="button" (click)="filterFormateurs(filter.value)">Search</button>
-    
+
     <table id="myTable" class="table table-dark table-hover">
       <thead>
         <tr>
           <th>Nom</th>
-          <th>Prenom</th> 
+          <th>Prenom</th>
           <th>Email</th>
           <th>Matieres</th>
           <th></th>
@@ -20,24 +19,29 @@
       <tbody>
         <tr *ngFor="let formateur of filteredFormateurs">
           <td>{{ formateur.nom }}</td>
-          <td>{{ formateur.prenom  }}</td>
+          <td>{{ formateur.prenom }}</td>
           <td>{{ formateur.mail }}</td>
-          <td><li *ngFor="let matiere of formateur.matieres">{{ matiere.nom }}</li></td>
+          <td>
+            <li *ngFor="let matiere of formateur.matieres">{{ matiere.nom }}</li>
+          </td>
           <td>
             <button type="button" class="btn btn-secondary btn-sm" style="margin:5px;">
-              <i class="bi bi-pencil-square"></i>
-            </button> 
-            <button type="button" (click) = "handleDelete(formateur)" class="btn btn-secondary btn-sm" style="margin:5px;">
+              <i class="bi bi-pencil-square"></i> Détails
+            </button>
+            <button type="button" (click)="delete(formateur.id)" class="btn btn-secondary btn-sm" style="margin:5px;">
               <i class="bi bi-trash3"></i>
             </button>
-        </td>
+          </td>
         </tr>
         <tr>
-          <button type="button" class="btn btn-secondary btn-sm" style="margin:5px;"><i class="bi bi-person-fill-add"></i></button>
+          <button type="button" class="btn btn-secondary btn-sm" style="margin:5px;"
+            routerLink="/formateurs/register"><i class="bi bi-person-fill-add"></i>
+            Ajouter
+          </button>
         </tr>
       </tbody>
     </table>
   </div>
 
- 
-</body> 
+
+</body>

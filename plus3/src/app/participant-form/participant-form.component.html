@@ -1,144 +1,114 @@
-
 <div class="container">
-    <div [hidden]="submitted">
-      <h1>User form</h1>
-      <form (ngSubmit)="onSubmit()" #userForm="ngForm">
+  <div [hidden]="submitted">
+    <h1>User form</h1>
+    <form (ngSubmit)="onSubmit()" #userForm="ngForm">
 
 
 
-        
+
+      <div class="form-group">
+        <label for="nom">nom</label>
+        <input type="text" class="form-control" id="nom" minlength="2" maxlength="10" pattern="^(?!\s*$).+" required
+          [(ngModel)]="participant.nom" name="nom" #nom="ngModel">
+        <div [hidden]="nom.valid || nom.pristine" class="alert alert-danger">
+          {{stringMsg}}
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="prenom">prenom</label>
+        <input type="text" class="form-control" id="prenom" minlength="2" maxlength="10" pattern="^(?!\s*$).+" required
+          [(ngModel)]="participant.prenom" name="prenom" #prenom="ngModel">
+        <div [hidden]="prenom.valid || prenom.pristine" class="alert alert-danger">
+          {{stringMsg}}
+        </div>
+      </div>
+
+      <div #adresseForm>
         <div class="form-group">
-          <label for="nom">nom</label>
-          <input type="text" class="form-control" id="nom"
-                 minlength="2" maxlength="10" pattern="^(?!\s*$).+"
-                 required
-                 [(ngModel)]="participant.nom" name="nom"
-                 #nom="ngModel">
-          <div [hidden]="nom.valid || nom.pristine"
-               class="alert alert-danger">
-           {{stringMsg}}
+          <label for="numeroVoie">numeroVoie</label>
+          <input type="number" class="form-control" id="numeroVoie" required minlength="1" maxlength="5"
+            pattern="^(?!\s*$).+" [(ngModel)]="participant.adresse.numeroVoie" name="numeroVoie" #numeroVoie="ngModel">
+          <div [hidden]="numeroVoie.valid || numeroVoie.pristine" class="alert alert-danger">
+            {{numberMsg}}
           </div>
-          </div>
-        
-          <div class="form-group">
-            <label for="prenom">prenom</label>
-            <input type="text" class="form-control" id="prenom"
-                   minlength="2" maxlength="10" pattern="^(?!\s*$).+"
-                   required
-                   [(ngModel)]="participant.prenom" name="prenom"
-                   #prenom="ngModel">
-            <div [hidden]="prenom.valid || prenom.pristine"
-                 class="alert alert-danger">
-                 {{stringMsg}}
-            </div>
-            </div>
-          
-        <div #adresseForm>
-          <div class="form-group">
-            <label for="numeroVoie">numeroVoie</label>
-            <input type="number" class="form-control" id="numeroVoie"
-                   required minlength="1" maxlength="5" pattern="^(?!\s*$).+"
-                   [(ngModel)]="participant.adresse.numeroVoie" name="numeroVoie"
-                   #numeroVoie="ngModel">
-            <div [hidden]="numeroVoie.valid || numeroVoie.pristine"
-                 class="alert alert-danger">
-                 {{numberMsg}}
-            </div>
-          </div>
-    
-          <div class="form-group">
-            <label for="typedeVoie">Type de Voie</label>
-            <select class="form-control" id="typedeVoie"
-                    required minlength="2" maxlength="10" pattern="^(?!\s*$).+"
-                    [(ngModel)]="participant.adresse.typeVoie" name="typedeVoie"
-                    #typedeVoie="ngModel">
-              <option *ngFor="let typedeVoie of typedeVoies" [value]="typedeVoie">{{typedeVoie}}</option>
-            </select>
-            <div [hidden]="typedeVoie.valid || typedeVoie.pristine" class="alert alert-danger">
-              typedeVoie is required
-            </div>
-          </div>
-  
-          <div class="form-group">
-            <label for="nomdeVoie">nomdeVoie</label>
-            <input type="text" class="form-control" id="nomdeVoie" pattern="^(?!\s*$).+"
-                   required minlength="2" maxlength="10"
-                   [(ngModel)]="participant.adresse.nomVoie" name="nomdeVoie"
-                   #nomdeVoie="ngModel">
-            <div [hidden]="nomdeVoie.valid || nomdeVoie.pristine"
-                 class="alert alert-danger">
-                 {{stringMsg}}
-            </div>
-            </div>
-
-            <div class="form-group">
-              <label for="codePostal">codePostal</label>
-              <input type="text" class="form-control" id="codePostal" 
-                     required minlength="5" maxlength="10" pattern="^(?!\s*$).+"
-                     [(ngModel)]="participant.adresse.codePostal" name="codePostal"
-                     #codePostal="ngModel">
-              <div [hidden]="codePostal.valid || codePostal.pristine"
-                   class="alert alert-danger">
-                   Veuillez entrer de 5 à 10 caractères.
-              </div>
-              </div>
-
-              <div class="form-group">
-                <label for="ville">ville</label>
-                <input type="text" class="form-control" id="ville"
-                       required minlength="2" maxlength="20" pattern="^(?!\s*$).+"
-                       [(ngModel)]="participant.adresse.ville" name="ville"
-                       #ville="ngModel">
-                <div [hidden]="ville.valid || ville.pristine"
-                     class="alert alert-danger">
-                     {{longTxtMsg}}
-                </div>
-                </div>
-            
         </div>
 
         <div class="form-group">
-          <label for="mail">e-mail</label>
-          <input type="email" class="form-control" email = true
-                 required 
-                 [(ngModel)]="participant.mail" name="mail"
-                 #mail="ngModel">
-          <div [hidden]="mail.valid || mail.pristine"
-               class="alert alert-danger">
-            Veuillez verifiez e-mail.
+          <label for="typedeVoie">Type de Voie</label>
+          <select class="form-control" id="typedeVoie" required minlength="2" maxlength="10" pattern="^(?!\s*$).+"
+            [(ngModel)]="participant.adresse.typeVoie" name="typedeVoie" #typedeVoie="ngModel">
+            <option *ngFor="let typedeVoie of typedeVoies" [value]="typedeVoie">{{typedeVoie}}</option>
+          </select>
+          <div [hidden]="typedeVoie.valid || typedeVoie.pristine" class="alert alert-danger">
+            typedeVoie is required
           </div>
         </div>
-       
+
         <div class="form-group">
-          <label for="entreprise">entreprise</label>
-          <input type="text" class="form-control" id="entreprise"
-                 required minlength="2" maxlength="20" pattern="^(?!\s*$).+"
-                 [(ngModel)]="participant.entreprise" name="entreprise"
-                 #entreprise="ngModel">
-          <div [hidden]="entreprise.valid || entreprise.pristine"
-               class="alert alert-danger">
-               {{longTxtMsg}}
+          <label for="nomdeVoie">nomdeVoie</label>
+          <input type="text" class="form-control" id="nomdeVoie" pattern="^(?!\s*$).+" required minlength="2"
+            maxlength="10" [(ngModel)]="participant.adresse.nomVoie" name="nomdeVoie" #nomdeVoie="ngModel">
+          <div [hidden]="nomdeVoie.valid || nomdeVoie.pristine" class="alert alert-danger">
+            {{stringMsg}}
           </div>
         </div>
 
-        
-        <div [hidden]="userForm.form.valid"
-               class="alert alert-danger">
-               {{errorMsg}}
+        <div class="form-group">
+          <label for="codePostal">codePostal</label>
+          <input type="text" class="form-control" id="codePostal" required minlength="5" maxlength="10"
+            pattern="^(?!\s*$).+" [(ngModel)]="participant.adresse.codePostal" name="codePostal" #codePostal="ngModel">
+          <div [hidden]="codePostal.valid || codePostal.pristine" class="alert alert-danger">
+            Veuillez entrer de 5 à 10 caractères.
           </div>
-        <button type="submit" class="btn btn-success" [disabled]="!userForm.form.valid">Submit</button>
-        <button type="button" class="btn btn-default" (click)="newUser(); userForm.reset()">New user</button>
-      </form>
-    </div>
+        </div>
+
+        <div class="form-group">
+          <label for="ville">ville</label>
+          <input type="text" class="form-control" id="ville" required minlength="2" maxlength="20" pattern="^(?!\s*$).+"
+            [(ngModel)]="participant.adresse.ville" name="ville" #ville="ngModel">
+          <div [hidden]="ville.valid || ville.pristine" class="alert alert-danger">
+            {{longTxtMsg}}
+          </div>
+        </div>
+
+      </div>
+
+      <div class="form-group">
+        <label for="mail">e-mail</label>
+        <input type="email" class="form-control" email=true required [(ngModel)]="participant.mail" name="mail"
+          #mail="ngModel">
+        <div [hidden]="mail.valid || mail.pristine" class="alert alert-danger">
+          Veuillez verifiez e-mail.
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="entreprise">entreprise</label>
+        <input type="text" class="form-control" id="entreprise" required minlength="2" maxlength="20"
+          pattern="^(?!\s*$).+" [(ngModel)]="participant.entreprise" name="entreprise" #entreprise="ngModel">
+        <div [hidden]="entreprise.valid || entreprise.pristine" class="alert alert-danger">
+          {{longTxtMsg}}
+        </div>
+      </div>
+
+
+      <div [hidden]="userForm.form.valid" class="alert alert-danger">
+        {{errorMsg}}
+      </div>
+      <button type="submit" class="btn btn-success" [disabled]="!userForm.form.valid">Submit</button>
+      <button type="button" class="btn btn-default" (click)="newUser(); userForm.reset()">New user</button>
+    </form>
+  </div>
 
 
 
-    <div [hidden]="!submitted">
+  <div [hidden]="!submitted">
     <h2>You submitted the following:</h2>
     <div class="card">
       <p>Nom: {{participant.nom}}</p>
       <p>Prenom: {{participant.prenom}}</p>
-      
+
       <div class="card">
         <p>Adresese</p>
         <p>Numero de Voie: {{participant.adresse.numeroVoie}}</p>
@@ -155,7 +125,7 @@
     <br>
     <button type="button" class="btn btn-primary" (click)="submitted=false">Edit</button>
     <button type="button" class="add-button" (click)="submitParticipant(participant)">
-        Confirm
-      </button>
-    </div>
-    </div>    
+      Confirm
+    </button>
+  </div>
+</div>
