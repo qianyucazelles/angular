@@ -18,6 +18,7 @@ export class NavbarComponent implements OnInit {
   ngOnInit(): void {
     const userRole = this.userService.GetUserInfoFromStorage().role;
     this.showComponent(userRole);
+    
   }
   
 

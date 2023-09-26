@@ -37,10 +37,10 @@ addFormateur(formateur: Formateur): Observable<Formateur>{
 }
 
 //DELETE : delete un formateur
-deleteFormateur(id: number): Observable<Formateur>{
+deleteFormateur(id: number): Observable<any>{
   const url = `${this.urlApi}/${id}`
 
-  return this.http.delete<Formateur>(url, this.httpOptions)
+  return this.http.delete<any>(url, this.httpOptions)
 }
 
 

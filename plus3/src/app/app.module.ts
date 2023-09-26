@@ -17,7 +17,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UsersComponent } from './users/users.component';
 import { UserFormComponent } from './user-form/user-form.component';
 import { NavbarComponent } from './navbar/navbar.component';
-import { HomepageComponent } from './homepage/homepage.component';
+
 import { FormateurDetailsComponent } from './formateur-details/formateur-details.component';
 import { FormationFormComponent } from './formation-form/formation-form.component';
 import { FormationDetailsComponent } from './formation-details/formation-details.component';
@@ -42,7 +42,6 @@ import { CommonModule } from '@angular/common';
     UsersComponent,
     UserFormComponent,
     NavbarComponent,
-    HomepageComponent,
     FormateurDetailsComponent,
     FormationFormComponent,
     FormationDetailsComponent,

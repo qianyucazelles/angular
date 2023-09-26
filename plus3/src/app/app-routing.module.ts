@@ -12,7 +12,8 @@ import { FormateurDetailsComponent } from './formateur-details/formateur-details
 import { FormationsComponent } from './formations/formations.component';
 import { FormationFormComponent } from './formation-form/formation-form.component';
 import { FormationDetailsComponent } from './formation-details/formation-details.component';
-import { HomepageComponent } from './homepage/homepage.component';
+
+import { AccueilComponent } from './accueil/accueil.component';
 
 const routes: Routes = [
   {path: "participants/register/:id", component: ParticipantFormComponent},
@@ -31,7 +32,7 @@ const routes: Routes = [
   {path: "formations/register", component: FormationFormComponent},
   {path: "formations/:id", component: FormationDetailsComponent},
   {path: "histoire", component: HistoireComponent,},
-  {path: "", component: HomepageComponent}
+  {path: "", component: AccueilComponent}
 ];
 
 @NgModule({

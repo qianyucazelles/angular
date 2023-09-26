@@ -1,0 +1,15 @@
+
+<h1>Composant - lifecyle - onClick: selectEmployee(employee) </h1>
+<div>
+<p *ngFor = "let employee of employees" (click) = "selectEmployee(employee)">
+  <span><img [src]="employee.picture" width="200px" height="200px"/><br></span>
+
+  <span>id: {{employee.id}}, </span>
+  <span>name: {{employee.name}}, </span>
+  <span>role: {{employee.roles}}, </span>
+  <span>level: {{employee.level}}, </span>
+  <span>seniority: {{employee.seniority}} </span>
+</p>
+</div>
+<router-outlet></router-outlet>
+

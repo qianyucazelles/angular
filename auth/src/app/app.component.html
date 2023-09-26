@@ -1,0 +1,53 @@
+<h1 *ngIf="isLoggedIn">Hello, {{name}} ({{roles}})</h1>
+
+<button *ngIf="isLoggedIn" (click)="logout()" raised-button>Logout</button>
+<button (click)="fetchUnsecure()" raised-button>Fetch unsecure</button>
+<div>{{unsecure}}</div>
+<button (click)="fetchSecure()" raised-button>Fetch secure</button>
+<div>{{secure}}</div>
+<button (click)="fetchSecureAdmin()" raised-button>Fetch data for admin</button>
+<div>{{secureAdmin}}</div>
+
+<form (ngSubmit)="login()" *ngIf="!isLoggedIn && !showRegistration" [formGroup]="loginForm">
+  <div class="card">
+    <header>
+      <title>Sign in</title>
+    </header>
+    <content>
+      <div>
+        <label>Username</label>
+        <input formControlName="username" matInput>
+      </div>
+      <div>
+        <label>Password</label>
+        <input formControlName="password" matInput type="password">
+      </div>
+    </content>
+
+      <button raised-button (click)="showRegistration = true">Register</button>
+      <button color="primary" raised-button type="submit">Sign in</button>
+
+  </div>
+</form>
+
+<form (ngSubmit)="register()" *ngIf="showRegistration" [formGroup]="registrationForm">
+  <div class="card">
+    <header>
+      <title>Register</title>
+    </header>
+    <content>
+      <div>
+        <label>Username</label>
+        <input formControlName="username" matInput>
+      </div>
+      <div>
+        <label>Password</label>
+        <input formControlName="password" matInput type="password">
+      </div>
+    </content>
+
+      <button raised-button (click)="showRegistration = false">Sign-in</button>
+      <button color="primary" raised-button type="submit">Register</button>
+
+  </div>
+</form>

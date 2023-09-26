@@ -17,6 +17,7 @@ export class ParticipantComponent {
   filteredParticipants: Participant[] =[];
   searchText: string ="";
   role: string="";
+  hasRight: Boolean = false;
 
   constructor(
     private participantService: ParticipantService,
@@ -28,6 +29,9 @@ export class ParticipantComponent {
   ngOnInit(): void {
       this.getParticipants();
       this.role = this.userService.GetUserInfoFromStorage().role;
+      if (this.role=="ADMIN"){
+        this.hasRight=true;
+      }
   }
   
   getParticipants():void{
