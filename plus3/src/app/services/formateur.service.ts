@@ -8,9 +8,12 @@ import { Observable } from 'rxjs';
 })
 export class FormateurService {
 
+  url = "http://localhost:8080/formateurs"
+
   constructor(private http: HttpClient) {}
 
-  getFormateurs(): Observable<Formateur[]> {
-    return this.http.get<Formateur[]>('/assets/jsons/formateurs.json');
+  async getAllFormateurs(): Promise<Formateur[]> {
+    const data = await fetch(this.url);
+    return await data.json() ?? [];
   }
 }

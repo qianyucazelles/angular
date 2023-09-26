@@ -12,6 +12,13 @@ import { HttpClientModule } from '@angular/common/http';
 import { HistoireComponent } from './histoire/histoire.component';
 import { SearchFilterPipe } from './search-filter.pipe';
 
+import { ParticipantFormComponent } from './participant-form/participant-form.component';
+import { ParticipantDetailsComponent } from './participant-details/participant-details.component';
+import { FormsModule } from '@angular/forms';
+import { UsersComponent } from './users/users.component';
+import { UserFormComponent } from './user-form/user-form.component';
+import { NavbarComponent } from './navbar/navbar.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,11 +28,17 @@ import { SearchFilterPipe } from './search-filter.pipe';
     FormateursComponent,
     MatiereComponent,
     HistoireComponent,
-    SearchFilterPipe
+    SearchFilterPipe,
+    ParticipantFormComponent,
+    ParticipantDetailsComponent,
+    UsersComponent,
+    UserFormComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
     HttpClientModule
   ],
   providers: [],

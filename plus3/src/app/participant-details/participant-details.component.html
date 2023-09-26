@@ -1,0 +1,27 @@
+
+<div class = "row">
+  <div class="card col-12 col-md-6 col-lg-4"  style="width: 18rem;">
+    <img src="assets/images/male.png" class="card-img-top" alt="...">
+    <div class="card-body">
+      <p>Nom: {{participant.nom}}</p>
+      <p>Prenom: {{participant.prenom}}</p>
+      <p>E-mail: {{participant.mail}}</p>
+      <p>Entreprise: {{participant.entreprise}}</p>
+      
+    </div>
+  </div>
+
+  <div class="card col-12 col-md-6 col-lg-4"  style="width: 18rem;">
+    <p>Adresese</p>
+    <p>Numero de Voie: {{participant.adresse.numeroVoie}}</p>
+    <p>Type de Voie: {{participant.adresse.typeVoie}}</p>
+    <p>Nom de Voie: {{participant.adresse.nomVoie}}</p>
+    <p>Code Postal: {{participant.adresse.codePostal}}</p>
+    <p>Ville: {{participant.adresse.ville}}</p>
+    <a class="btn btn-secondary btn-sm" (click)="updateParticipant()">Update</a>
+    <br>
+    <a class="btn btn-secondary btn-sm" (click)="goBack()">Go back</a>
+  </div>
+
+</div>
+
