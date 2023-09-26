@@ -6,7 +6,8 @@ export const sessionList: FormationSession[] = sessionJson.map((majorData: any) 
     
     const formation = new Formation(
         majorData.formation.id,
-        majorData.formation.nom
+        majorData.formation.nom,
+        majorData.formation.description
     );
     
     return new FormationSession(

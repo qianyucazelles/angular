@@ -19,10 +19,12 @@ const routes: Routes = [
   {path: "participants/:id", component: ParticipantDetailsComponent},
   {path: "sessions", component: FormationSessionComponent},
     
-  //{path: "formateurs/:id", component: FormateurDetailsComponent},
-  {path: "formateurs", component: FormateursComponent},
-  {path: "formateurs/register", component: FormateurFormComponent},
 
+  {path: "formateurs", component: FormateursComponent},
+  {path: "formateurs/register/:id", component: FormateurFormComponent},
+  {path: "formateurs/register", component: FormateurFormComponent},
+  {path: "formateurs/:id", component: FormateurDetailsComponent},
+  
   {path: "formations", component: FormationsComponent},
   {path: "formations/register/:id", component: FormationFormComponent},
   {path: "formations/register", component: FormationFormComponent},

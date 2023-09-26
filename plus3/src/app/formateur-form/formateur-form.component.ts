@@ -39,8 +39,6 @@ export class FormateurFormComponent implements OnInit {
   }
 
 
-
-
   getMatiere() {
     this.matiereService.getMatieres().subscribe(matieres => { this.matieres = matieres; });
   }

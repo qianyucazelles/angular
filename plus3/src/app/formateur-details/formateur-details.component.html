@@ -1,1 +1,13 @@
-<p>formateur-details works!</p>
+<div *ngIf="formateur">
+    <div class="card-body">
+        <p>Nom : {{formateur.nom}} </p>
+        <p>Prenom : {{formateur.prenom}}</p>
+        <p>Mail : {{formateur.mail}}</p>
+        <p>Matière(s) : {{formateur.matieres}}</p>
+    </div>
+    <div>
+        <button class="btn btn-secondary btn-sm" (click)="updateFormateur()">Update</button>
+        <br>
+        <button class="btn btn-secondary btn-sm" (click)="goBack()">Go back</button>
+    </div>
+</div>

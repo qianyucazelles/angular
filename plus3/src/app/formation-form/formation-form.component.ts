@@ -37,7 +37,8 @@ export class FormationFormComponent implements OnInit {
   newFormation(){
     this.formation={
       id:0,
-      nom:""
+      nom:"",
+      description:""
     }
   }
 

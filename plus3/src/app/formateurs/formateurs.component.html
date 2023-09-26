@@ -25,7 +25,8 @@
             <li *ngFor="let matiere of formateur.matieres">{{ matiere.nom }}</li>
           </td>
           <td>
-            <button type="button" class="btn btn-secondary btn-sm" style="margin:5px;">
+            <button type="button" class="btn btn-secondary btn-sm" style="margin:5px;"
+            routerLink="/formateurs/{{formateur.id}}">
               <i class="bi bi-pencil-square"></i> Détails
             </button>
             <button type="button" (click)="delete(formateur.id)" class="btn btn-secondary btn-sm" style="margin:5px;">
