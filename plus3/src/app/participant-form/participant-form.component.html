@@ -8,7 +8,7 @@
 
       <div class="form-group">
         <label for="nom">nom</label>
-        <input type="text" class="form-control" id="nom" minlength="2" maxlength="10" pattern="^(?!\s*$).+" required
+        <input type="text" class="form-control" id="nom" minlength="2" maxlength="10" pattern="^(?!\s*$).+" required autocomplete="off"
           [(ngModel)]="participant.nom" name="nom" #nom="ngModel">
         <div [hidden]="nom.valid || nom.pristine" class="alert alert-danger">
           {{stringMsg}}
@@ -17,7 +17,7 @@
 
       <div class="form-group">
         <label for="prenom">prenom</label>
-        <input type="text" class="form-control" id="prenom" minlength="2" maxlength="10" pattern="^(?!\s*$).+" required
+        <input type="text" class="form-control" id="prenom" minlength="2" maxlength="10" pattern="^(?!\s*$).+" required autocomplete="off"
           [(ngModel)]="participant.prenom" name="prenom" #prenom="ngModel">
         <div [hidden]="prenom.valid || prenom.pristine" class="alert alert-danger">
           {{stringMsg}}
@@ -27,7 +27,7 @@
       <div #adresseForm>
         <div class="form-group">
           <label for="numeroVoie">numeroVoie</label>
-          <input type="number" class="form-control" id="numeroVoie" required minlength="1" maxlength="5"
+          <input type="number" class="form-control" id="numeroVoie" required minlength="1" maxlength="5" autocomplete="off"
             pattern="^(?!\s*$).+" [(ngModel)]="participant.adresse.numeroVoie" name="numeroVoie" #numeroVoie="ngModel">
           <div [hidden]="numeroVoie.valid || numeroVoie.pristine" class="alert alert-danger">
             {{numberMsg}}
@@ -47,7 +47,7 @@
 
         <div class="form-group">
           <label for="nomdeVoie">nomdeVoie</label>
-          <input type="text" class="form-control" id="nomdeVoie" pattern="^(?!\s*$).+" required minlength="2"
+          <input type="text" class="form-control" id="nomdeVoie" pattern="^(?!\s*$).+" required minlength="2" autocomplete="off"
             maxlength="10" [(ngModel)]="participant.adresse.nomVoie" name="nomdeVoie" #nomdeVoie="ngModel">
           <div [hidden]="nomdeVoie.valid || nomdeVoie.pristine" class="alert alert-danger">
             {{stringMsg}}
@@ -56,7 +56,7 @@
 
         <div class="form-group">
           <label for="codePostal">codePostal</label>
-          <input type="text" class="form-control" id="codePostal" required minlength="5" maxlength="10"
+          <input type="text" class="form-control" id="codePostal" required minlength="5" maxlength="10" autocomplete="off"
             pattern="^(?!\s*$).+" [(ngModel)]="participant.adresse.codePostal" name="codePostal" #codePostal="ngModel">
           <div [hidden]="codePostal.valid || codePostal.pristine" class="alert alert-danger">
             Veuillez entrer de 5 à 10 caractères.
@@ -65,7 +65,7 @@
 
         <div class="form-group">
           <label for="ville">ville</label>
-          <input type="text" class="form-control" id="ville" required minlength="2" maxlength="20" pattern="^(?!\s*$).+"
+          <input type="text" class="form-control" id="ville" required minlength="2" maxlength="20" pattern="^(?!\s*$).+" autocomplete="off"
             [(ngModel)]="participant.adresse.ville" name="ville" #ville="ngModel">
           <div [hidden]="ville.valid || ville.pristine" class="alert alert-danger">
             {{longTxtMsg}}
@@ -76,7 +76,7 @@
 
       <div class="form-group">
         <label for="mail">e-mail</label>
-        <input type="email" class="form-control" email=true required [(ngModel)]="participant.mail" name="mail"
+        <input type="email" class="form-control" email=true required [(ngModel)]="participant.mail" name="mail" autocomplete="off"
           #mail="ngModel">
         <div [hidden]="mail.valid || mail.pristine" class="alert alert-danger">
           Veuillez verifiez e-mail.
@@ -85,7 +85,7 @@
 
       <div class="form-group">
         <label for="entreprise">entreprise</label>
-        <input type="text" class="form-control" id="entreprise" required minlength="2" maxlength="20"
+        <input type="text" class="form-control" id="entreprise" required minlength="2" maxlength="20" autocomplete="off"
           pattern="^(?!\s*$).+" [(ngModel)]="participant.entreprise" name="entreprise" #entreprise="ngModel">
         <div [hidden]="entreprise.valid || entreprise.pristine" class="alert alert-danger">
           {{longTxtMsg}}

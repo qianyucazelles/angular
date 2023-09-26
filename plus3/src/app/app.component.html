@@ -18,7 +18,8 @@
           </a>
           <ul class="dropdown-menu">
             <li><a class="dropdown-item" routerLink="/formations">Toutes les Formations</a></li>
-            <li *ngFor="let formation of formations"><a class="dropdown-item" routerLink="/formations/{{formation.id}}">{{formation.nom}}</a></li>
+            <li *ngFor="let formation of formations"><a class="dropdown-item"
+                routerLink="/formations/{{formation.id}}">{{formation.nom}}</a></li>
           </ul>
         </li>
 
@@ -30,7 +31,7 @@
         </li>
 
       </ul>
-      
+
       <button class="btn btn-light" type="submit"><i class="bi bi-person-circle"></i></button>
     </div>
   </div>
@@ -40,20 +41,30 @@
 
 <div class="footer-basic">
   <footer>
-      <div class="social"><a href="https://www.linkedin.com/" target="_blank"><i class="bi bi-linkedin"></i></a><a href="https://www.twitter.com/" target="_blank"><i class="bi bi-twitter"></i></a><a href="https://www.facebook.com/" target="_blank"><i class="bi bi-facebook"></i></a><a href="https://www.youtube.com/" target="_blank"><i class="bi bi-youtube"></i></a></div>
-      <ul class="list-inline">
-          <li class="list-inline-item"><a href="#">Home</a></li>
-          <li class="list-inline-item"><a href="#">Services</a></li>
-          <li class="list-inline-item"><a href="#">About</a></li>
-          <li class="list-inline-item"><a href="#">Terms</a></li>
-          <li class="list-inline-item"><a href="#">Privacy Policy</a></li>
-      </ul>
+    <div class="social"><a href="https://www.linkedin.com/" target="_blank"><i class="bi bi-linkedin"></i></a><a
+        href="https://www.twitter.com/" target="_blank"><i class="bi bi-twitter"></i></a><a
+        href="https://www.facebook.com/" target="_blank"><i class="bi bi-facebook"></i></a><a
+        href="https://www.youtube.com/" target="_blank"><i class="bi bi-youtube"></i></a></div>
 
-        <div class="bg-light py-2">
-    <div class="container text-center">
-      <p class="text-muted mb-0 py-2">© 2023 Plus3 All rights reserved.</p>
+    <ul class="list-inline">
+      <li class="list-inline-item"><a href="#">Home</a></li>
+      <li class="list-inline-item"><a href="#">Services</a></li>
+      <li class="list-inline-item"><a href="#">About</a></li>
+      <li class="list-inline-item"><a href="#">Terms</a></li>
+      <li class="list-inline-item"><a href="#">Privacy Policy</a></li>
+    </ul>
+
+    <ul class="list-inline">
+      <li class="list-inline-item"><a href="#">Tel : 04.24.58.50.10</a></li>
+      <li class="list-inline-item"><a href="#">Mail : Contact@plus3.com</a></li>
+      <li class="list-inline-item"><a href="#">Adresse : 9 Chemin de la Formation</a></li>
+    </ul>
+
+    <div id="fin">
+      <div class="container text-center">
+        <p class="text-muted mb-0 py-2">© 2023 Plus3 All rights reserved.</p>
+      </div>
     </div>
-  </div>
   </footer>
 
 </div>

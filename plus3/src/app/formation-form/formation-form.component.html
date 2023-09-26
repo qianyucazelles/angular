@@ -5,7 +5,7 @@
             
             <div class="form-group">
                 <label for="nom">Nom</label>
-                <input type="text" name="nom" id="nom" minlength="2" class="form-control" required
+                <input type="text" name="nom" id="nom" minlength="2" class="form-control" required autocomplete="off"
                 [(ngModel)]="formation.nom" #nom="ngModel">
                 <div [hidden]="nom.valid || nom.pristine" class=" alert alert-danger">Le nom doit comporter plus de 2 caractères</div>
             </div>
@@ -13,7 +13,7 @@
         
             <div class="form-group">
                 <label for="description">Descritpion</label>
-                <input type="text" name="description" id="nom" minlength="20" maxlength="255" class="form-control" required
+                <input type="text" name="description" id="nom" minlength="20" maxlength="255" class="form-control" required autocomplete="off"
                 [(ngModel)]="formation.description" #description="ngModel">
                 <div [hidden]="description.valid || description.pristine" class=" alert alert-danger">La descirption doit comporter entre 20 et 255 caractères</div>
             </div>

@@ -27,10 +27,6 @@
   background-color: #376996;
 }
 
-.dropdown-menu --bs-tertiary-bg{
-  color:#6290C8 ;
-}
-
 .dropdown-menu :hover{
   color:#6290C8 ;
 }
