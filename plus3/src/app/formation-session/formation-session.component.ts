@@ -34,7 +34,8 @@ export class FormationSessionComponent implements OnInit {
   }
 
   subscribe(formationSession: FormationSession){
-    if (this.idUser=0){
+
+    if (this.idUser===0){
       alert("Veuillez login.")
       this.router.navigate(["auth"]);
     } else if (!this.idParticipant){

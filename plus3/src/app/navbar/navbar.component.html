@@ -1,30 +1,39 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#">
-          <img src="/assets/images/logo.png"  alt="logo" width="100" height=auto>Plus3 IT Training</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Home</a>
-          </li>
-  
-          <li class="nav-item" *ngFor = "let action of actions">
-            <a 
-              (click)="setCurrentAction(action)"
-              routerLink="{{action.url}}"
-              [class]="action==currentAction? 'nav-link active':'nav-link'"
-            >
+<nav class="navbar navbar-expand-lg sticky-top" style="background-color: #1F487E;">
+  <div class="container-fluid">
+    <a class="navbar-brand" routerLink="">
+      <img src="/assets/images/logo4.png" alt="logo" width="100" height=auto>Plus3 IT Training</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" routerLink="">Accueil</a>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Liste des Formations
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" routerLink="/formations">Toutes les Formations</a></li>
+            <li *ngFor="let formation of formations"><a class="dropdown-item"
+                routerLink="/formations/{{formation.id}}">{{formation.nom}}</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item" *ngFor="let action of actions">
+          <a (click)="setCurrentAction(action)" routerLink="{{action.url}}"
+            [class]="action==currentAction? 'nav-link active':'nav-link'">
             {{action.name}}
           </a>
-          </li>
-  
-        </ul>
+        </li>
 
-        <button class="btn btn-light" type="submit"><i class="bi bi-person-circle"></i>
-            <a class="btn btn-secondary btn-sm" (click)="getAuth()">Login/SignOut</a></button>
+      </ul>
+
+        <i class="bi bi-person-circle"></i>
+            <a class="btn btn-secondary btn-sm" style="color:black;" (click)="getAuth()">Login/SignOut</a>
       </div>
     </div>
   </nav>

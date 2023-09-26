@@ -2,6 +2,8 @@ import { UserInfo, UserLoginInfo } from './../users/user';
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../services/user.service';
 import { Router } from '@angular/router';
+import { Formation } from '../formations/formations';
+import { FormationService } from '../services/formation.service';
 
 @Component({
   selector: 'app-navbar',
@@ -12,13 +14,22 @@ export class NavbarComponent implements OnInit {
   title = 'plus3';
   userRole: String = "";
   actions!: Array<any>;
+  formations: Formation[] = []
 
-  constructor(private userService: UserService,private router: Router){}
+
+  constructor(private userService: UserService,private router: Router, 
+    private formationService : FormationService){}
 
   ngOnInit(): void {
+    this.getAllFormation();
     const userRole = this.userService.GetUserInfoFromStorage().role;
     this.showComponent(userRole);
     
+  }
+
+  getAllFormation(): void{
+    this.formationService.getFormations()
+    .subscribe(formations =>{this.formations = formations, this.formations = formations})
   }
   
 

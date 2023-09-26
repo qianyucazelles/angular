@@ -1,31 +1,32 @@
 .gif-container {
-    width: 50px; /* Adjust the container size as needed */
-    height: auto;
-    overflow: hidden; /* Clip the animated image */
+  width: 50px; /* Adjust the container size as needed */
+  height: auto;
+  overflow: hidden; /* Clip the animated image */
+}
+
+.moving-gif {
+  animation: moveAnimation 5s linear infinite; /* Adjust animation duration and timing as needed */
+  max-width: 100%; /* Ensure the image doesn't exceed the container size */
+}
+
+@keyframes moveAnimation {
+  0% {
+    transform: translateX(0);
   }
-  
-  .moving-gif {
-    animation: moveAnimation 5s linear infinite; /* Adjust animation duration and timing as needed */
-    max-width: 100%; /* Ensure the image doesn't exceed the container size */
+  100% {
+    transform: translateX(100%); /* Move the image to the right; you can use other values and properties for different animations */
   }
-  
-  @keyframes moveAnimation {
-    0% {
-      transform: translateX(0);
-    }
-    100% {
-      transform: translateX(100%); /* Move the image to the right; you can use other values and properties for different animations */
-    }
-  }
+}
+
 
 .navbar a{
-  color: white;
+color: white;
 }
 
 .dropdown-menu{
-  background-color: #376996;
+background-color: #376996;
 }
 
-
-
-  
+.dropdown-menu :hover{
+color:#6290C8 ;
+}
