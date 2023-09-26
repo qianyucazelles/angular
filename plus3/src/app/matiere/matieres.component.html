@@ -1,1 +1,37 @@
-<p>matiere works!</p>
+
+
+<div *ngIf="matiere">
+    <h1>Matieres: </h1>
+    <div class="input-group mb-3">
+        <input #nom type="text" class="form-control" placeholder="Nouvelle matière..." aria-label="Example text with button addon" aria-describedby="button-addon1">
+        <button class="btn  btn-primary" type="button" id="button-addon1" (click)="add(nom.value)" >Ajouter</button>
+    </div>
+
+    <p>{{nom.value}}</p>
+    
+
+    <table id="myTable" class="table table-dark table-hover">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nom</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let mat of matiere">
+          <td>{{ mat.id }}</td>
+          <td>{{ mat.nom }}</td>
+          <td>
+            <button type="button" (click)="delete(mat)" class="btn btn-secondary btn-sm" style="margin:5px;">
+              <i class="bi bi-trash3"></i>
+            </button>
+          </td>
+        </tr>
+
+      </tbody>
+    </table>
+
+            
+  </div>
+

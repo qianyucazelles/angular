@@ -3,8 +3,9 @@ import { FormateurService } from '../services/formateur.service';
 import { MatiereService } from '../services/matiere.service';
 import { Component, OnInit } from '@angular/core';
 import { Formateur, FormateurGeneralizeFormat, } from '../formateurs/formateur';
-import { Matieres } from '../matiere/matieres';
+
 import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
+import { Matiere } from '../matiere/matieres';
 
 @Component({
   selector: 'app-add',
@@ -14,7 +15,7 @@ import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
 export class FormateurFormComponent implements OnInit {
 
   formateur!: Formateur
-  matieres: Matieres[] = []
+  matieres: Matiere[] = []
   submitted: boolean = false;
   form: FormGroup
 
@@ -40,7 +41,7 @@ export class FormateurFormComponent implements OnInit {
 
 
   getMatieres() {
-    this.matiereService.getMatieres().subscribe(matieres => { this.matieres = matieres; });
+    this.matiereService.getAllMatieres().subscribe(matieres => { this.matieres = matieres; });
   }
 
 

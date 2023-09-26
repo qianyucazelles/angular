@@ -1,0 +1,17 @@
+<!-- <div *ngIf="cours">
+    <p>{{cours.nom}}</p></div>-->
+    <h5>Détails du cours : {{cours.nom}}</h5> 
+    <div >
+        <div *ngIf="cours">
+            <p>Matière associée : {{cours.matiere.nom}}</p>
+            <p>Formation associée: {{cours.formation.nom}}</p>
+            <p>Durée : {{cours.duree}} heures</p>
+            <!-- <p>Coordonnées du formateur: <br> 
+                Nom : {{cours.formateur.nom}}<br> 
+                Prénom : {{cours.formateur.prenom}}<br>
+                mail : {{cours.formateur.mail}}    
+            </p>     -->
+        </div>
+        <button class="btn btn-secondary btn-sm" >Update</button>
+        <button class="btn btn-secondary btn-sm" (click)="goBack()">Go back</button>
+    </div>

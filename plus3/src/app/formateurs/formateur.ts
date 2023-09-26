@@ -1,5 +1,6 @@
 import { upperLowerTxt } from "../generalFunctions/upperLowerTxt";
-import { Matieres } from "../matiere/matieres";
+import { Matiere } from "../matiere/matieres";
+
 
 
 export interface Formateur {
@@ -7,7 +8,7 @@ export interface Formateur {
     nom: string;
     prenom: string;
     mail: string;
-    matieres: Matieres[];
+    matieres: Matiere[];
   }
 
 export function FormateurGeneralizeFormat(formateur : Formateur) : Formateur{

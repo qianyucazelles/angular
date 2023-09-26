@@ -13,6 +13,10 @@ import { FormationsComponent } from './formations/formations.component';
 import { FormationFormComponent } from './formation-form/formation-form.component';
 import { FormationDetailsComponent } from './formation-details/formation-details.component';
 import { AccueilComponent } from './accueil/accueil.component';
+import { MatieresComponent } from './matiere/matieres.component';
+import { CoursComponent } from './cours/cours.component';
+import { CoursDetailsComponent } from './cours-details/cours-details.component';
+import { CoursFormComponent } from './cours-form/cours-form.component';
 
 
 
@@ -34,8 +38,15 @@ const routes: Routes = [
   {path: "formations/register/:id", component: FormationFormComponent},
   {path: "formations/register", component: FormationFormComponent},
   {path: "formations/:id", component: FormationDetailsComponent},
-  {path: "histoire", component: HistoireComponent,},
+  {path: "histoire", component: HistoireComponent},
+
+  {path:"cours/details/:id", component:CoursDetailsComponent},
+  {path:"cours/enregistrement", component:CoursFormComponent},
+  {path:"cours", component:CoursComponent},
+  {path:"matieres", component:MatieresComponent},
+
   {path: "", component: AccueilComponent}
+  
 ];
 
 @NgModule({

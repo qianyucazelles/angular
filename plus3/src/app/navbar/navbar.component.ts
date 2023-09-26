@@ -40,7 +40,8 @@ export class NavbarComponent implements OnInit {
         { name:"Participants", url: "/participants"},
         {name:"Sessions", url: "/sessions"},
         {name:"Formateurs", url: "/formateurs"},
-        {name:"Notre Histoire", url: "/histoire"}
+        {name:"Matieres", url: "/matieres"},
+        {name:"Cours", url: "cours"}
       ];
     } else if (userRole=="USER"){
       this.actions=[

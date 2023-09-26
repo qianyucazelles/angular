@@ -1,0 +1,45 @@
+<h3>Enregistrer un nouveau cours</h3>
+<div [hidden]="submitted">
+    <form (ngSubmit)="onSubmit()" #coursForm="ngForm">
+        <div class="mb-3 form-group">
+            <label for="nom">Nom :</label>
+            <input type="text" id="nom" class="form-control" placeholder="Nom du cours..." required [(ngModel)]="cours.nom" name="nom" #nom="ngModel">
+        </div>
+        <div class="mb-3 form-group">
+            <label for="formation" class="form-label ">Formation associée</label>
+            <select id="formation" class="form-select form-control" [(ngModel)]="cours.formation.id" name="id" #nom="ngModel">
+            <option *ngFor="let form of formation" [value]="form.id" >{{form.nom}}</option>
+
+            </select>
+        </div>
+        <div class="mb-3 form-group">
+            <label for="matiere" class="form-label">Matière associée</label>
+            <select id="matiere" class="form-select form-control" [(ngModel)]="cours.matiere.id" name="ID" #nom="ngModel" >
+                <option *ngFor="let mat of matiere" [value]="mat.id">{{mat.nom}}</option>
+            </select>
+        </div>
+        <div class="mb-3 form-group">
+            <label for="nom">Duree :</label>
+            <input type="text" id="duree" class="form-control" placeholder="Duree du cours..." required [(ngModel)]="cours.duree" name="duree" #nom="ngModel">
+        </div>
+
+        <div class="mb-3">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+
+<div [hidden]="!submitted">
+    <h5>You submitted the following:</h5>
+    <div class="card">
+      <p>Nom: {{cours.nom}}</p> <br>
+      <p>matiere id: {{cours.matiere.id}}</p> 
+      <p>formation: {{cours.formation.id}}</p>
+      <p>duree: {{cours.duree}}</p>
+    <br>
+    <button type="button" class="btn btn-primary" (click)="submitted=false">Edit</button>
+    <button type="button" class="add-button" (click)="submitCours(cours)">
+      Confirm
+    </button>
+  </div>
+</div>
