@@ -1,0 +1,13 @@
+.table-dark {
+    --bs-table-color : rgb(255, 255, 255);
+    --bs-table-bg : #1F487E;
+    --bs-table-border-color : rgb(255, 255, 255);
+    --bs-table-hover-bg : #6290C8;
+}
+
+
+.btn-secondary{
+    --bs-btn-bg: #1D3461;
+    --bs-btn-border-color: white;
+    --bs-btn-hover-bg : #b0bc82;
+}

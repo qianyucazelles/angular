@@ -3,16 +3,17 @@ body {
   min-height: 100vh;
   position: relative;
   margin: 0;
-  padding-bottom: 150px;
+  padding-bottom: 200px;
   box-sizing: border-box;
 }
 
 footer {
-  background-color: #ffffff;
+  background-color: rgb(229, 229, 229);
   color: #4b4c4d;
   position: absolute;
   bottom: 0;
   width: 100%;
+  padding-top: 10px;
 }
 
 .footer-basic ul {
@@ -36,6 +37,7 @@ footer {
 
 .footer-basic ul a:hover {
   opacity: 1;
+
 }
 
 .footer-basic .social {
@@ -51,7 +53,7 @@ footer {
   display: inline-block;
   text-align: center;
   border-radius: 50%;
-  border: 1px solid #ccc;
+  border: 1px solid #898989;
   margin: 0 8px;
   color: inherit;
   opacity: 0.75;
@@ -67,4 +69,8 @@ footer {
   font-size: 13px;
   color: #aaa;
   margin-bottom: 0;
+}
+
+#fin{
+  border-top: solid rgb(135, 128, 128) 1px;
 }

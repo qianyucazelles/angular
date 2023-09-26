@@ -28,19 +28,21 @@
           <td>{{ participant.entreprise }}</td>
           <td>{{ participant.adresse.ville }}</td>
           <td>
-            <button type="button" class="btn btn-secondary btn-sm" style="margin:5px;">
-              <i class="bi bi-info-square"></i>
-              <a routerLink="/participants/{{participant.id}}" > Details</a>
+            <button type="button" class="btn btn-secondary btn-sm" style="margin:5px;"
+            routerLink="/participants/{{participant.id}}">
+              <i class="bi bi-pencil-square"></i>
+            Details
             </button> 
             <button type="button" (click) = "delete(participant.id)" class="btn btn-secondary btn-sm" style="margin:5px;">
-              <i class="bi bi-trash3"></i> Delete
+              <i class="bi bi-trash3"></i>
             </button>
         </td>
 
         </tr>
         <tr>
-          <button type="button" class="btn btn-secondary btn-sm" style="margin:5px;"><i class="bi bi-person-fill-add"></i>
-            <a routerLink="/participants/register" > Ajouter</a>
+          <button type="button" class="btn btn-secondary btn-sm" style="margin:5px;"
+          routerLink="/participants/register"><i class="bi bi-person-fill-add"></i>
+          Ajouter
           </button>
         </tr>
       </tbody>

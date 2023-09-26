@@ -28,7 +28,23 @@ export class FormateursComponent{
 
   delete(formateurId: number){
     this.formateurService.deleteFormateur(formateurId)
-    .subscribe(this.getAllFormateur);
+    .subscribe({
+      next:response=>{
+        if (response == 1){
+          alert("succeful delete")
+
+        } else {
+          alert("Ce formateur participe à une session")
+
+        }
+        
+      },
+      error:err =>{
+        alert("Ce formateur participe à une session")
+      }
+      });
+      this.getAllFormateur
+
     this.refreshPage()
   }
 
