@@ -1,4 +1,6 @@
+import { Formation } from './formations/formations';
 import { Component } from '@angular/core';
+import { FormationService } from './services/formation.service';
 
 @Component({
   selector: 'app-root',

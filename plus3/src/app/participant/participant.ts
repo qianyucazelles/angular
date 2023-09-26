@@ -1,3 +1,4 @@
+
 import { Adresse } from "./adresse";
 
 export interface Participant{
@@ -8,6 +9,11 @@ export interface Participant{
     mail: string;
     entreprise: string;
 
-   
+}
+
+export interface ParticipantInfo{
+    id: number;
+    nom: string;
+    prenom: string;
 
 }

@@ -17,4 +17,15 @@
       transform: translateX(100%); /* Move the image to the right; you can use other values and properties for different animations */
     }
   }
+
+.navbar a{
+  color: white;
+}
+
+.dropdown-menu{
+  background-color: #376996;
+}
+
+
+
   

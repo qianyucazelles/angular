@@ -1,3 +1,4 @@
+import { ParticipantInfo } from './../participant/participant';
 import { User } from './../users/user';
 import { Injectable } from '@angular/core';
 import { UserInfo,  UserLoginInfo } from '../users/user';
@@ -67,6 +68,10 @@ export class UserService {
     localStorage.setItem('userdata', JSON.stringify(userdata))
   }
 
+  SetParticipantIdToLoaclStorage(participantInfo:ParticipantInfo) {
+    localStorage.setItem('participantdata', JSON.stringify(participantInfo))
+  }
+
   GetUserInfoFromStorage() {
     let _obj: UserInfo = {
       id: 0,
@@ -76,6 +81,21 @@ export class UserService {
     }
     if (localStorage.getItem('userdata') != null) {
       let jsonstring = localStorage.getItem('userdata') as string;
+      _obj = JSON.parse(jsonstring);
+      return _obj;
+    } else {
+      return _obj;
+    }
+  }
+
+  GetParticipantInfofoFromStorage() {
+    let _obj: ParticipantInfo = {
+      id: 0,
+      nom: '',
+      prenom: ''
+    }
+    if (localStorage.getItem('participantdata') != null) {
+      let jsonstring = localStorage.getItem('participantdata') as string;
       _obj = JSON.parse(jsonstring);
       return _obj;
     } else {

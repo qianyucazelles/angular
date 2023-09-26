@@ -1,8 +1,10 @@
+import { UserService } from './../services/user.service';
 import { Participant } from './../participant/participant';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Location } from '@angular/common';
 import { ParticipantService } from '../services/participant.service';
+import { User } from '../users/user';
 
 @Component({
   selector: 'app-participant-details',
@@ -12,17 +14,24 @@ import { ParticipantService } from '../services/participant.service';
 
 export class ParticipantDetailsComponent {
 participant!: Participant;
+hasRight: Boolean = false;
 
 
   constructor(
     private router: Router,
     private route: ActivatedRoute,
     private participantService: ParticipantService,
-    private location: Location
+    private location: Location,
+    private userService: UserService
   ) { }
 
   ngOnInit(): void {
     this.getParticipant();
+    const id = this.userService.GetParticipantInfofoFromStorage().id;
+    const role = this.userService.GetUserInfoFromStorage().role;
+    if (role=="ADMIN"|| id == this.participant.id ){
+      this.hasRight=true;
+    } 
   }
 
   getParticipant(): void {

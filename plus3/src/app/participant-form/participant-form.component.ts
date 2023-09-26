@@ -1,4 +1,5 @@
-import { Participant } from './../participant/participant';
+import { UserService } from './../services/user.service';
+import { Participant, ParticipantInfo } from './../participant/participant';
 import { Component, OnInit } from '@angular/core';
 import { ParticipantService } from '../services/participant.service';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -18,9 +19,11 @@ export class ParticipantFormComponent implements OnInit{
   numberMsg!: String;
   longTxtMsg!: String;
   errorMsg!: string;
+  participantInfo?: ParticipantInfo;
 
   constructor(
     private participantService: ParticipantService,
+    private userService: UserService,
     private route: ActivatedRoute,
     private router: Router){
       this.stringMsg = "Veuillez entrer de 2 à 10 caractères.";
@@ -44,8 +47,6 @@ export class ParticipantFormComponent implements OnInit{
     }
     
   }
-  
-  
 
   onSubmit() { this.submitted = true; }
 
@@ -58,13 +59,28 @@ export class ParticipantFormComponent implements OnInit{
     } else {
       this.add(participant);
     }
-    this.router.navigate(['/participants'])
+
+    const role = this.userService.GetUserInfoFromStorage().role;
+    if (role=="USER"){
+      const id = this.userService.GetParticipantInfofoFromStorage().id;
+      this.router.navigate(['/participants/'+id])
+    } else if (role == "ADMIN"){
+      this.router.navigate(['/participants'])
+    }
+    
   }
 
   add(participant:Participant){
     
     this.participantService.addParticipant(participant)
-    .subscribe()
+    .subscribe(participant=>{
+      this.participantInfo ={
+        "id": participant.id,
+        "nom": participant.nom,
+        "prenom" : participant.prenom
+      }
+      this.userService.SetParticipantIdToLoaclStorage(this.participantInfo)
+    })
   }
 
 

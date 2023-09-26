@@ -1,7 +1,7 @@
 
 <div class="container">
     <div [hidden]="submitted">
-      <h1>User form</h1>
+      <h1>Student Details</h1>
       <form (ngSubmit)="onSubmit()" #userForm="ngForm">
 
 
@@ -127,7 +127,7 @@
                {{errorMsg}}
           </div>
         <button type="submit" class="btn btn-success" [disabled]="!userForm.form.valid">Submit</button>
-        <button type="button" class="btn btn-default" (click)="newUser(); userForm.reset()">New user</button>
+        <!--button type="button" class="btn btn-default" (click)="newUser(); userForm.reset()">New user</button-->
       </form>
     </div>
 

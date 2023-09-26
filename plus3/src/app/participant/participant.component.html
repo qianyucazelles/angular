@@ -1,7 +1,8 @@
-
-
-  
- <body>
+<div ngIf="role!='ADMIN">
+  <p>Access denied.</p>
+</div>
+<div ngIf="role=='ADMIN">
+<body>
   <div *ngIf="participants">
     <h1>Participants: </h1>
     
@@ -51,3 +52,4 @@
 
  
 </body> 
+</div>

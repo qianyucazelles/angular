@@ -4,30 +4,37 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ParticipantComponent } from './participant/participant.component';
-import { FormationComponent } from './formation/formation.component';
+import { FormationsComponent } from './formations/formations.component';
 import { FormationSessionComponent } from './formation-session/formation-session.component';
-import { MatiereComponent } from './matiere/matiere.component';
+import { MatieresComponent } from './matiere/matieres.component';
 import { FormateursComponent } from './formateurs/formateurs.component';
 import { HttpClientModule } from '@angular/common/http';
 import { HistoireComponent } from './histoire/histoire.component';
 import { SearchFilterPipe } from './search-filter.pipe';
-
 import { ParticipantFormComponent } from './participant-form/participant-form.component';
 import { ParticipantDetailsComponent } from './participant-details/participant-details.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UsersComponent } from './users/users.component';
 import { UserFormComponent } from './user-form/user-form.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { HomepageComponent } from './homepage/homepage.component';
+import { FormateurDetailsComponent } from './formateur-details/formateur-details.component';
+import { FormationFormComponent } from './formation-form/formation-form.component';
+import { FormationDetailsComponent } from './formation-details/formation-details.component';
+import { FormateurFormComponent } from './formateur-form/formateur-form.component';
+import { CommonModule } from '@angular/common';
+
+
+
 
 @NgModule({
   declarations: [
     AppComponent,
     ParticipantComponent,
-    FormationComponent,
+    FormationsComponent,
     FormationSessionComponent,
     FormateursComponent,
-    MatiereComponent,
+    MatieresComponent,
     HistoireComponent,
     SearchFilterPipe,
     ParticipantFormComponent,
@@ -35,13 +42,22 @@ import { HomepageComponent } from './homepage/homepage.component';
     UsersComponent,
     UserFormComponent,
     NavbarComponent,
-    HomepageComponent
+    HomepageComponent,
+    FormateurDetailsComponent,
+    FormationFormComponent,
+    FormationDetailsComponent,
+    FormateurFormComponent
+
   ],
   imports: [
     BrowserModule,
+    CommonModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
+
+
   ],
   providers: [],
   bootstrap: [AppComponent]

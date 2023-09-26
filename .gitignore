@@ -1,0 +1,11 @@
+#Ignore folders
+employee/
+formDemo/
+fruitStore/
+helloworld/
+hook/
+node_modules/
+school/
+userLogin/
+w3school/
+routingDemo/

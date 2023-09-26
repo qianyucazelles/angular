@@ -1,3 +1,4 @@
+import { UserService } from './../services/user.service';
 import { Location } from '@angular/common';
 import { Component } from '@angular/core';
 import { Participant } from './participant';
@@ -15,16 +16,18 @@ export class ParticipantComponent {
   participants: Participant[] =[];
   filteredParticipants: Participant[] =[];
   searchText: string ="";
+  role: string="";
 
   constructor(
     private participantService: ParticipantService,
     private location: Location,
-    private router : Router
+    private router : Router,
+    private userService: UserService
     ){}
 
   ngOnInit(): void {
       this.getParticipants();
-      
+      this.role = this.userService.GetUserInfoFromStorage().role;
   }
   
   getParticipants():void{

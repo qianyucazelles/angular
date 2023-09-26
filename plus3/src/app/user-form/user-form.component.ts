@@ -1,6 +1,6 @@
 import { User, UserInfo, UserLoginInfo } from './../users/user';
 import { UserService } from './../services/user.service';
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { errExc } from '../error';
 import { Router } from '@angular/router';
 
@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
   templateUrl: './user-form.component.html',
   styleUrls: ['./user-form.component.css']
 })
-export class UserFormComponent {
+export class UserFormComponent implements OnInit{
   userInfo?: UserInfo;
   userLogin?: UserLoginInfo;
   errInfo?: errExc;
@@ -21,6 +21,9 @@ export class UserFormComponent {
   @Output() onSubmitRegisterEvent = new EventEmitter();
 
   constructor(private userService :UserService, private router: Router){}
+  ngOnInit(): void {
+    localStorage.clear()
+  }
 
 
 
@@ -46,7 +49,7 @@ export class UserFormComponent {
           if(response && response.hasOwnProperty('userName')){
             this.userInfo=response,
             this.userService.SetUserToLoaclStorage(response)
-            this.router.navigate([''])
+            this.router.navigate(['sessions'])
 
           } else {alert(response)}
         },
@@ -68,7 +71,7 @@ export class UserFormComponent {
                     if(response && response.hasOwnProperty('userName')){
                       this.userInfo=response,
                       this.userService.SetUserToLoaclStorage(response),
-                      this.router.navigate([''])
+                      this.router.navigate(['participants/register'])
 
                     } else {alert(response)}
                   },

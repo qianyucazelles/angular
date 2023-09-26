@@ -1,4 +1,5 @@
-import { Formation } from "../formation/formation.module";
+import { Formation } from "../formations/formations";
+
 
 export class FormationSession{
     id: number;
