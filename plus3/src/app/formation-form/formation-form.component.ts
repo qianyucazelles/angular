@@ -51,7 +51,12 @@ export class FormationFormComponent implements OnInit {
     }else{
       this.add(formation)
     }
+
     this.router.navigate(["/formations"])
+  }
+
+  refreshPage(){
+    window.location.reload()
   }
 
   add(formation: Formation){

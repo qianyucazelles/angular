@@ -46,7 +46,7 @@ formateur!:Formateur
 
 
   updateFormateur(){
-    this.router.navigate(["/formateur/register/" + this.formateur.id],
+    this.router.navigate(["/formateurs/register/" + this.formateur.id],
     {state: {formateur : this.formateur}})
   }
 

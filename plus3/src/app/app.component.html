@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg sticky-top navbar-dark bg-dark">
+<nav class="navbar navbar-expand-lg sticky-top" style="background-color: #1F487E;">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">
       <img src="/assets/images/logo.png" alt="logo" width="100" height=auto>Plus3 IT Training</a>
@@ -9,7 +9,17 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
+          <a class="nav-link active" aria-current="page" href="#">Accueil</a>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Liste des Formations
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" routerLink="/formations">Toutes les Formations</a></li>
+            <li *ngFor="let formation of formations"><a class="dropdown-item" routerLink="/formations/{{formation.id}}">{{formation.nom}}</a></li>
+          </ul>
         </li>
 
         <li class="nav-item" *ngFor="let action of actions">
@@ -20,10 +30,7 @@
         </li>
 
       </ul>
-      <form class="d-flex">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-secondary" type="submit"><i class="bi bi-search"></i></button>
-      </form>
+      
       <button class="btn btn-light" type="submit"><i class="bi bi-person-circle"></i></button>
     </div>
   </div>

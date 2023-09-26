@@ -35,11 +35,11 @@ export class FormateurFormComponent implements OnInit {
 
   ngOnInit(): void {
     this.getFormateur()
-    this.getMatiere()
+    this.getMatieres()
   }
 
 
-  getMatiere() {
+  getMatieres() {
     this.matiereService.getMatieres().subscribe(matieres => { this.matieres = matieres; });
   }
 
@@ -89,8 +89,4 @@ export class FormateurFormComponent implements OnInit {
     this.submitted = true
   }
 
-
-  alert() {
-    console.log(this.matieres)
-  }
 }
