@@ -20,6 +20,7 @@ import { FormationFormComponent } from './formation-form/formation-form.componen
 import { FormationDetailsComponent } from './formation-details/formation-details.component';
 import { CommonModule } from '@angular/common';
 import { FormateurFormComponent } from './formateur-form/formateur-form.component';
+import { AccueilComponent } from './accueil/accueil.component';
 
 
 
@@ -38,7 +39,8 @@ import { FormateurFormComponent } from './formateur-form/formateur-form.componen
     FormateurDetailsComponent,
     FormationFormComponent,
     FormationDetailsComponent,
-    FormateurFormComponent
+    FormateurFormComponent,
+    AccueilComponent
   ],
   imports: [
     BrowserModule,

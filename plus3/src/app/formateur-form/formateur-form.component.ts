@@ -68,6 +68,8 @@ export class FormateurFormComponent implements OnInit {
     this.formateurService.addFormateur(formateur).subscribe()
   }
 
+
+
   update(formateur: Formateur) {
     this.formateurService.updateFormateur(formateur).subscribe()
   }

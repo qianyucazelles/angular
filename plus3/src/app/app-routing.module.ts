@@ -11,8 +11,11 @@ import { FormateurDetailsComponent } from './formateur-details/formateur-details
 import { FormationsComponent } from './formations/formations.component';
 import { FormationFormComponent } from './formation-form/formation-form.component';
 import { FormationDetailsComponent } from './formation-details/formation-details.component';
+import { AccueilComponent } from './accueil/accueil.component';
 
 const routes: Routes = [
+  {path: "", component: AccueilComponent},
+
   {path: "participants/register/:id", component: ParticipantFormComponent},
   {path: "participants/register", component: ParticipantFormComponent},
   {path: "participants", component: ParticipantComponent},
