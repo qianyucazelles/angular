@@ -7,6 +7,7 @@ import { FormateursComponent } from './formateurs/formateurs.component';
 import { HistoireComponent } from './histoire/histoire.component';
 import { ParticipantDetailsComponent } from './participant-details/participant-details.component';
 import { UserFormComponent } from './user-form/user-form.component';
+import { HomepageComponent } from './homepage/homepage.component';
 
 const routes: Routes = [
   {path: "participants/register/:id", component: ParticipantFormComponent},
@@ -16,7 +17,8 @@ const routes: Routes = [
   {path: "sessions", component: FormationSessionComponent},
   {path: "formateurs", component: FormateursComponent},
   {path: "histoire", component: HistoireComponent},
-  {path: "auth", component: UserFormComponent}
+  {path: "auth", component: UserFormComponent},
+  {path: "", component: HomepageComponent}
 ];
 
 @NgModule({

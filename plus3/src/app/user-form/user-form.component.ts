@@ -1,6 +1,8 @@
-import { User, UserInfo } from './../users/user';
+import { User, UserInfo, UserLoginInfo } from './../users/user';
 import { UserService } from './../services/user.service';
 import { Component, EventEmitter, Output } from '@angular/core';
+import { errExc } from '../error';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-user-form',
@@ -8,15 +10,18 @@ import { Component, EventEmitter, Output } from '@angular/core';
   styleUrls: ['./user-form.component.css']
 })
 export class UserFormComponent {
-
-  @Output() onSubmitLoginEvent = new EventEmitter();
-  @Output() onSubmitRegisterEvent = new EventEmitter();
-
-  constructor(private userService :UserService){}
+  userInfo?: UserInfo;
+  userLogin?: UserLoginInfo;
+  errInfo?: errExc;
   userName: string = "";
   password: string = "";
   active: string = "login";
   confirmPassword: string = "";
+  @Output() onSubmitLoginEvent = new EventEmitter();
+  @Output() onSubmitRegisterEvent = new EventEmitter();
+
+  constructor(private userService :UserService, private router: Router){}
+
 
 
 
@@ -31,30 +36,52 @@ export class UserFormComponent {
 	}
 
   onSubmitLogin(): void{
-
+   this.userLogin= 
+    {"userName": this.userName,
+    "password": this.password}
     this.userService.logIn(
-      {"userName": this.userName,
-      "password": this.password}
-      ).subscribe(userInfo=>this.userService.SetUserToLoaclStorage(userInfo))
+      this.userLogin
+      ).subscribe({
+        next:response =>{
+          if(response && response.hasOwnProperty('userName')){
+            this.userInfo=response,
+            this.userService.SetUserToLoaclStorage(response)
+            this.router.navigate([''])
 
-    this.onSubmitLoginEvent.emit(
-      {"userName": this.userName,
-      "password": this.password
-    }
-    )
-   }
-
-   onSubmitRegister(): void{
-    if (this.password==this.confirmPassword){
-      this.onSubmitRegisterEvent.emit(
-        { "userName": this.userName,
-          "password":this.password,
+          } else {alert(response)}
+        },
+        error: err =>{
+          alert("Please check usename or password");}}
+        )
         }
-      )
-    } else {
-      alert("Please use same passwords.")
-    }
-    
-   }
 
-}
+        onSubmitRegister(): void{
+          if (this.confirmPassword==this.password){
+              this.userLogin= 
+              {"userName": this.userName,
+              "password": this.password}
+             
+              this.userService.register(
+                this.userLogin
+                ).subscribe({
+                  next:response =>{
+                    if(response && response.hasOwnProperty('userName')){
+                      this.userInfo=response,
+                      this.userService.SetUserToLoaclStorage(response),
+                      this.router.navigate([''])
+
+                    } else {alert(response)}
+                  },
+                  error: err =>{
+                    alert("User name is already used.");}}
+                  )
+
+          } else {
+            alert("Please use same passwords.")
+          }
+        }
+
+
+
+
+      }

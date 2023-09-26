@@ -4,6 +4,7 @@ import { UserInfo,  UserLoginInfo } from '../users/user';
 import { Observable, catchError, of, tap } from 'rxjs';
 import { MessageService } from './message.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { errExc } from '../error';
 
 @Injectable({
   providedIn: 'root'
@@ -30,19 +31,22 @@ export class UserService {
     )
   }
 
-  logIn(userLogin: UserLoginInfo): Observable< UserInfo> {
+
+
+  logIn(userLogin: UserLoginInfo): Observable<any> {
     const url = `${this.url}/auth/login`;
-    return this.http.get<UserInfo>(url)
-    .pipe(
-      tap(_=>this.log('fetched userinfos')),
-      catchError(this.handleError<UserInfo>(`login error`))
-    );
+
+    return this.http.post<any>(url,userLogin, this.httpOptions)
+    // .pipe(
+    //   tap((userInfo: UserInfo)=>this.log(`successfully login user`)),
+    //   catchError(this.handleError<errExc>('add user error'))
+    // )
   }
 
 
 
   /** POST: add a new userinfo to the server */
-  register(userLogin: UserLoginInfo): Observable<UserInfo> {
+  register(userLogin: UserLoginInfo): Observable<any> {
     
      const user: User = {
       userName : userLogin.userName,
@@ -52,10 +56,11 @@ export class UserService {
 
     const url = `${this.url}/auth/register`;
 
-    return this.http.post<UserInfo>(url, user, this.httpOptions).pipe(
-      tap((newUserInfo: UserInfo) => this.log(`User is successfully added.`)),
-      catchError(this.handleError<UserInfo>('addUserInfo'))
-    );
+    return this.http.post<any>(url, user, this.httpOptions)
+    // .pipe(
+    //   tap((newUserInfo: UserInfo) => this.log(`User is successfully added.`)),
+    //   catchError(this.handleError<UserInfo>('addUserInfo'))
+    // );
   }
 
   SetUserToLoaclStorage(userdata: UserInfo) {
@@ -64,9 +69,10 @@ export class UserService {
 
   GetUserInfoFromStorage() {
     let _obj: UserInfo = {
+      id: 0,
       userName: '',
       role: '',
-      id: 0
+      token: ''
     }
     if (localStorage.getItem('userdata') != null) {
       let jsonstring = localStorage.getItem('userdata') as string;
