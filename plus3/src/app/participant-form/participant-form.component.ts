@@ -5,6 +5,7 @@ import { ParticipantService } from '../services/participant.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { upperLowerTxt } from '../generalFunctions/upperLowerTxt';
 import { ParticipantGeneralizeFormat } from '../participant/participantGeneralizeFormat';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-participant-form',
@@ -25,6 +26,7 @@ export class ParticipantFormComponent implements OnInit{
     private participantService: ParticipantService,
     private userService: UserService,
     private route: ActivatedRoute,
+    private location : Location,
     private router: Router){
       this.stringMsg = "Veuillez entrer de 2 à 10 caractères.";
       this.longTxtMsg = "Veuillez entrer de 2 à 20 caractères.";
@@ -43,7 +45,6 @@ export class ParticipantFormComponent implements OnInit{
       .subscribe(participant => this.participant = participant);
     } else {
       this.newUser();
-
     }
     
   }
@@ -51,9 +52,14 @@ export class ParticipantFormComponent implements OnInit{
   onSubmit() { this.submitted = true; }
 
   
+  goBack(): void {
+    this.location.back();
+  }
 
   submitParticipant(participant:Participant){
+
     participant = ParticipantGeneralizeFormat(participant);
+
     if(this.participant.id>0){
       this.update(participant);
     } else {
@@ -61,11 +67,16 @@ export class ParticipantFormComponent implements OnInit{
     }
 
     const role = this.userService.GetUserInfoFromStorage().role;
-    if (role=="USER"){
-      const id = this.userService.GetParticipantInfofoFromStorage().id;
-      this.router.navigate(['/participants/'+id])
-    } else if (role == "ADMIN"){
+    
+    if (role==="USER" ){
+        
+        this.router.navigate(['/sessions']);
+      
+    } else if (role === "ADMIN"){
       this.router.navigate(['/participants'])
+    } else {
+      alert("error");
+      this.router.navigate([''])
     }
     
   }
@@ -73,13 +84,14 @@ export class ParticipantFormComponent implements OnInit{
   add(participant:Participant){
     
     this.participantService.addParticipant(participant)
-    .subscribe(participant=>{
+    .subscribe(
+      participantR=>{
       this.participantInfo ={
-        "id": participant.id,
-        "nom": participant.nom,
-        "prenom" : participant.prenom
+        "id": participantR.id,
+        "nom": participantR.nom,
+        "prenom" : participantR.prenom
       }
-      this.userService.SetParticipantIdToLoaclStorage(this.participantInfo)
+      this.userService.SetParticipantIdToLoaclStorage(this.participantInfo);
     })
   }
 

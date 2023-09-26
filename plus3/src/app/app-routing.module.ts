@@ -14,6 +14,7 @@ import { FormationFormComponent } from './formation-form/formation-form.componen
 import { FormationDetailsComponent } from './formation-details/formation-details.component';
 
 import { AccueilComponent } from './accueil/accueil.component';
+import { AppComponent } from './app.component';
 
 const routes: Routes = [
   {path: "participants/register/:id", component: ParticipantFormComponent},

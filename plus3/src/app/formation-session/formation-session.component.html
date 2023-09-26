@@ -5,18 +5,17 @@
         <tr>
           <th>Formation</th>
           <th>Begin Date</th> 
-          <th>End Date</th>
+
           <th>Remaining Place/Capacity</th>
           <th></th>
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let major of sessionList">
+        <tr *ngFor="let major of sessions">
           <td>{{ major.formation.nom }}</td>
           <td>{{ major.dateDebut }}</td>
-          <td>{{ major.dateFin }}</td>
           <td>{{ major.remainingPlace }}/{{ major.capacity }}</td>
-          <td><button type="button" class="btn btn-secondary btn-sm">Subscribe</button></td>
+          <td><button type="button" (click)="subscribe(major)" class="btn btn-secondary btn-sm">Subscribe</button></td>
         </tr>
       </tbody>
     </table>

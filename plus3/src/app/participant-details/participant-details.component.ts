@@ -4,7 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Location } from '@angular/common';
 import { ParticipantService } from '../services/participant.service';
-import { User } from '../users/user';
+
 
 @Component({
   selector: 'app-participant-details',
