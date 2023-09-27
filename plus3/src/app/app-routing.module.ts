@@ -22,11 +22,11 @@ import { CoursFormComponent } from './cours-form/cours-form.component';
 
 const routes: Routes = [
   {path: "", component: AccueilComponent},
-  {path: "participants/:id", component: ParticipantDetailsComponent},
+ 
   {path: "participants/register/:id", component: ParticipantFormComponent},
   {path: "participants/register", component: ParticipantFormComponent},
   {path: "participants", component: ParticipantComponent},
-
+  {path: "participants/:id", component: ParticipantDetailsComponent},
   {path: "sessions", component: FormationSessionComponent},
   {path: "formateurs", component: FormateursComponent},
   {path: "histoire", component: HistoireComponent},
