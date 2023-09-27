@@ -34,15 +34,14 @@ export class FormationSessionComponent implements OnInit {
   }
 
   subscribe(formationSession: FormationSession){
-
-    if (this.idUser===0){
+    if (formationSession.remainingPlace==0){
+      alert("Cette session est complète.Veuillez en choisir une autre.")
+    } else if (this.idUser===0){
       alert("Veuillez login.")
       this.router.navigate(["auth"]);
     } else if (!this.idParticipant){
       alert("Veuillez enregistrer vos informations détaillées.")
       this.router.navigate(["participants/register"])
-    } else if (formationSession.capacity==formationSession.remainingPlace){
-      alert("Cette session est complète.Veuillez en choisir une autre.")
     } else {
       this.sessionService.subscribeSession(formationSession.id, this.idParticipant)
       .subscribe({
