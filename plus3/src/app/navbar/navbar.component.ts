@@ -1,3 +1,4 @@
+import { ParticipantService } from './../services/participant.service';
 import { UserInfo, UserLoginInfo } from './../users/user';
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../services/user.service';
@@ -18,11 +19,14 @@ export class NavbarComponent implements OnInit {
 
 
   constructor(private userService: UserService,private router: Router, 
-    private formationService : FormationService){}
+    private formationService : FormationService,
+    private participantService : ParticipantService
+    ){}
 
   ngOnInit(): void {
     this.getAllFormation();
     const userRole = this.userService.GetUserInfoFromStorage().role;
+    const userId = this.userService.GetUserInfoFromStorage().id;
     this.showComponent(userRole);
     
   }
@@ -45,11 +49,13 @@ export class NavbarComponent implements OnInit {
       ];
     } else if (userRole=="USER"){
       this.actions=[
+
         {name:"Sessions", url: "/sessions"},
         {name:"Notre Histoire", url: "/histoire"}
       ];
     } else{
       this.actions=[
+        {name:"Sessions", url: "/sessions"},
         {name:"Notre Histoire", url: "/histoire"}
       ];
     }

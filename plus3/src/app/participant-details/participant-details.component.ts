@@ -29,7 +29,7 @@ hasRight: Boolean = false;
     this.getParticipant();
     const id = this.userService.GetParticipantInfofoFromStorage().id;
     const role = this.userService.GetUserInfoFromStorage().role;
-    if (role=="ADMIN"|| id == this.participant.id ){
+    if (role==="ADMIN"|| id == this.participant.id ){
       this.hasRight=true;
     } 
   }
