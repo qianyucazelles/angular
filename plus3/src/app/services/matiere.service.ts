@@ -3,7 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 import { MessageService } from './message.service';
-import { Matiere } from '../matiere/matieres';
+import { Matiere } from '../models/matieres';
 
 @Injectable({
   providedIn: 'root'

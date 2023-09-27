@@ -1,7 +1,7 @@
-import { ParticipantInfo } from './../participant/participant';
-import { User } from './../users/user';
+import { ParticipantInfo } from '../component/participant/participant';
+import { User } from '../component/users/user';
 import { Injectable } from '@angular/core';
-import { UserInfo,  UserLoginInfo } from '../users/user';
+import { UserInfo,  UserLoginInfo } from '../component/users/user';
 import { Observable, catchError, of, tap } from 'rxjs';
 import { MessageService } from './message.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';

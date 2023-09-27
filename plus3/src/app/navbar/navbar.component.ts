@@ -1,9 +1,9 @@
 import { ParticipantService } from './../services/participant.service';
-import { UserInfo, UserLoginInfo } from './../users/user';
+import { UserInfo, UserLoginInfo } from '../component/users/user';
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../services/user.service';
 import { Router } from '@angular/router';
-import { Formation } from '../formations/formations';
+import { Formation } from '../component/formations/formations';
 import { FormationService } from '../services/formation.service';
 
 @Component({
@@ -16,18 +16,19 @@ export class NavbarComponent implements OnInit {
   userRole: String = "";
   actions!: Array<any>;
   formations: Formation[] = []
+  participantId?:number;
 
 
   constructor(private userService: UserService,private router: Router, 
-    private formationService : FormationService,
-    private participantService : ParticipantService
+    private formationService : FormationService
     ){}
 
   ngOnInit(): void {
     this.getAllFormation();
-    const userRole = this.userService.GetUserInfoFromStorage().role;
-    const userId = this.userService.GetUserInfoFromStorage().id;
-    this.showComponent(userRole);
+    this.userRole = this.userService.GetUserInfoFromStorage().role;
+    this.participantId = this.userService.GetParticipantInfofoFromStorage().id;
+    this.showComponent(this.userRole);
+    
     
   }
 
@@ -37,7 +38,7 @@ export class NavbarComponent implements OnInit {
   }
   
 
-  showComponent(userRole: string): void{
+  showComponent(userRole: String): void{
     this.userRole = userRole;
     if (userRole=="ADMIN"){
       this.actions=[
@@ -51,7 +52,8 @@ export class NavbarComponent implements OnInit {
       this.actions=[
 
         {name:"Sessions", url: "/sessions"},
-        {name:"Notre Histoire", url: "/histoire"}
+        {name:"Notre Histoire", url: "/histoire"},
+        {name:"Mon Compte ", url:"participants/"+ this.participantId}
       ];
     } else{
       this.actions=[

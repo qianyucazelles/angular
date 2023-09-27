@@ -1,4 +1,4 @@
-import { Formation } from './formations/formations';
+import { Formation } from './component/formations/formations';
 import { Component } from '@angular/core';
 import { FormationService } from './services/formation.service';
 

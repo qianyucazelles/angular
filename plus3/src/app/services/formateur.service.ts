@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Formateur } from '../formateurs/formateur';
+import { Formateur } from '../component/formateurs/formateur';
 import { Observable, catchError } from 'rxjs';
 
 @Injectable({

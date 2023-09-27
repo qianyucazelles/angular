@@ -3,7 +3,7 @@ import { Injectable, OnInit } from '@angular/core';
 import { Observable, catchError, of, tap } from 'rxjs';
 
 import { MessageService } from './message.service';
-import { Cours } from '../model/cours';
+import { Cours } from '../models/cours';
 
 @Injectable({
   providedIn: 'root'

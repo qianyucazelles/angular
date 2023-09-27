@@ -1,7 +1,7 @@
 import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Formation } from '../formations/formations';
+import { Formation } from '../component/formations/formations';
 
 @Injectable({
   providedIn: 'root'

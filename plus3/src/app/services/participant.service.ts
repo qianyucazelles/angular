@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Participant } from '../participant/participant';
+import { Participant } from '../component/participant/participant';
 import { MessageService } from './message.service';
 import { Observable, catchError, of, tap } from 'rxjs';
 

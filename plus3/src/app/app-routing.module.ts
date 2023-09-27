@@ -1,22 +1,22 @@
-import { ParticipantFormComponent } from './participant-form/participant-form.component';
+import { ParticipantFormComponent } from './component/participant-form/participant-form.component';
 import { NgModule, Component } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ParticipantComponent } from './participant/participant.component';
-import { FormationSessionComponent } from './formation-session/formation-session.component';
-import { FormateursComponent } from './formateurs/formateurs.component';
-import { HistoireComponent } from './histoire/histoire.component';
-import { ParticipantDetailsComponent } from './participant-details/participant-details.component';
-import { UserFormComponent } from './user-form/user-form.component';
-import { FormateurFormComponent } from './formateur-form/formateur-form.component';
-import { FormateurDetailsComponent } from './formateur-details/formateur-details.component';
-import { FormationsComponent } from './formations/formations.component';
-import { FormationFormComponent } from './formation-form/formation-form.component';
-import { FormationDetailsComponent } from './formation-details/formation-details.component';
+import { ParticipantComponent } from './component/participant/participant.component';
+import { FormationSessionComponent } from './component/formation-session/formation-session.component';
+import { FormateursComponent } from './component/formateurs/formateurs.component';
+import { HistoireComponent } from './component/histoire/histoire.component';
+import { ParticipantDetailsComponent } from './component/participant-details/participant-details.component';
+import { UserFormComponent } from './component/user-form/user-form.component';
+import { FormateurFormComponent } from './component/formateur-form/formateur-form.component';
+import { FormateurDetailsComponent } from './component/formateur-details/formateur-details.component';
+import { FormationsComponent } from './component/formations/formations.component';
+import { FormationFormComponent } from './component/formation-form/formation-form.component';
+import { FormationDetailsComponent } from './component/formation-details/formation-details.component';
 import { AccueilComponent } from './accueil/accueil.component';
-import { MatieresComponent } from './matiere/matieres.component';
-import { CoursComponent } from './cours/cours.component';
-import { CoursDetailsComponent } from './cours-details/cours-details.component';
-import { CoursFormComponent } from './cours-form/cours-form.component';
+import { MatieresComponent } from './component/matiere/matieres.component';
+import { CoursComponent } from './component/cours/cours.component';
+import { CoursDetailsComponent } from './component/cours-details/cours-details.component';
+import { CoursFormComponent } from './component/cours-form/cours-form.component';
 
 
 
