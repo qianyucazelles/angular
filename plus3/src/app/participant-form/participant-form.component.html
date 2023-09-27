@@ -62,12 +62,12 @@
           <div class="form-group">
             <label for="nomdeVoie">nomdeVoie</label>
             <input type="text" class="form-control" id="nomdeVoie" pattern="^(?!\s*$).+"
-                   required minlength="2" maxlength="10"
+                   required minlength="2" maxlength="20"
                    [(ngModel)]="participant.adresse.nomVoie" name="nomdeVoie"
                    #nomdeVoie="ngModel">
             <div [hidden]="nomdeVoie.valid || nomdeVoie.pristine"
                  class="alert alert-danger">
-                 {{stringMsg}}
+                 {{longTxtMsg}}
             </div>
             </div>
 
